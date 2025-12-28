@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: #f1f2f4;
+    background-color: #F1F2F4;
 }
 
 header{
@@ -28,7 +28,7 @@ header{
 .modal-content {
     position: relative;
     background: #fff;
-    padding: 250px;
+    padding: 50px;    
     border-radius: 20px;
     text-align: center;
 }
@@ -36,7 +36,7 @@ header{
 /* 화이트 박스 기준으로 글자 위에 배치 */
 .modal-content h2 {      
     position: absolute;
-    top: 20px;
+    top: 24px;
     left: 0;
     right: 0;
     text-align: center;
@@ -45,51 +45,60 @@ header{
 /* 두 박스를 감싸는 컨테이너 */
 .box-container {
     display: flex;
-    gap: 20px;         
+    gap: 50px;
     justify-content: center;
     margin: 20px 0; 
 }
 
 /* 공통 박스 스타일 */
 .box {
-    width: 150px;
-    height: 150px;
-    font-size: 110%;
+    width: 200px;
+    height: 200px;
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #111;
-    background-color: #fbfbfb;
+    background-color: #f1f2f4;
     border-radius: 15px;
-    border: 1px solid #e6e6e6;
+    border: 1px solid #f1f2f4;
     font-weight: bold;
 }
 
 .box:hover {
     opacity: 0.8;
     border: 1px solid #111;
-    cursor: pointer;
+    cursor: pointer;    
 }
 
-#canvas {
-    display: flex;
+#canvas {    
+    display: block;            
+    overflow-y: scroll;
     justify-content: center;
-    align-items: center;    
+    align-items: center;       
     height: 90vh;
 }
 
-.card {        
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;       
-    max-height: 100%; 
-    box-sizing: border-box;
+#canvas::-webkit-scrollbar {
+    width: 10px;
 }
 
-.card-horizontal {
-    width: 80%; 
-    max-width: 70%; 
+#canvas::-webkit-scrollbar-thumb {
+    height: 20%;
+    background: #888888;
+    border-radius: 10px;
+}
+
+.card {       
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    background-color: #fff;       
+    max-height: 100%;     
+}
+
+.card-horizontal {    
+    width: 60%;    
     aspect-ratio: 94 / 54;    
     object-fit: contain;   
 }
@@ -97,6 +106,14 @@ header{
 .card-vertical {    
     width: auto; 
     height: 80%;
-    max-width: 70%; 
+    max-width: 400px;     
     aspect-ratio: 54 / 94;         
+}
+
+.tool-bar {
+    position: fixed;
+    width: 80px;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid #f1f2f4;
 }
