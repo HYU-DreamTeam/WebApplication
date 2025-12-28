@@ -1,0 +1,54 @@
+/* Header */
+a {
+    color: #111;
+    text-decoration: none;
+}
+
+header {
+    border-bottom: 1px solid #eee;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a:hover {
+    opacity: 0.6;
+}
+
+.auth {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn {
+    background: #111;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}

@@ -3,15 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WAD-portfolio</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/portfolio.css">
 </head>
 <body>
-    <div id="nav-placeholder"></div>
+    <header>
+        <div class="header-inner">
+            <a href="/" class="logo"><img src="/assets/images/logo.png" alt=""></a>
+            <nav>
+                <a href="/resume.html">이력서</a>
+                <a href="/portfolio.html">포트폴리오</a>
+                <a href="/card.html">명함</a>
+            </nav>
+            <div class="auth">
+                <a href="#">로그인</a>
+                <a href="#" class="btn">회원가입</a>
+            </div>
+        </div>
+    </header>
 
-    <h1>포트폴리오 페이지</h1>
-    <img src="../images/portfolio.png" alt="">
-
-    <script src="../index.js"></script>
+    <div class="fan-container">
+        <div class="fan-wrapper">
+            <div class="card card-1"><span>Django</span><em>01</em></div>
+            <div class="card card-2"><span>HTML</span><em>02</em></div>
+            <div class="card card-3"><span>CSS</span><em>03</em></div>
+            <div class="card card-4"><span>JavaScript</span><em>04</em></div>
+            <div class="card card-5"><span>React</span><em>05</em></div>
+            <div class="card card-6"><span>Node.js</span><em>06</em></div>
+            <div class="card card-7"><span>Next.js</span><em>07</em></div>
+            <div class="card card-8"><span>PHP</span><em>08</em></div>
+            <div class="card card-9"><span>JSP</span><em>09</em></div>
+        </div>
+    </div>
 </body>
 </html>
