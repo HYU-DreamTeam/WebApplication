@@ -16,9 +16,11 @@
 }
 
 .card {
-    position: absolute;
     width: 140px;
     height: 200px;
+    position: absolute;
+    left: 50%;
+    margin-left: -70px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -27,9 +29,6 @@
     color: #fff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     cursor: pointer;
-    left: 50%;
-    margin-left: -70px;
-    bottom: 0;
     transform-origin: center 400px; /*중요*/
 }
 
