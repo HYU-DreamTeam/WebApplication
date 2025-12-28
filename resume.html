@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이력서 - Portfolio</title>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/resume.css">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="./" class="logo"><img src="./assets/images/logo.png" alt=""></a>
+            <nav>
+                <a href="./resume.html">이력서</a>
+                <a href="./portfolio.html">포트폴리오</a>
+                <a href="./card.html">명함</a>
+            </nav>
+            <div class="auth">
+                <a href="#">로그인</a>
+                <a href="#" class="btn">회원가입</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="resume-page">
+        <div class="resume-container">
+
+            <!-- 콘텐츠 -->
+            <div class="resume-content">
+                <!-- 좌측 -->
+                <div class="left-col">
+                    <section class="section">
+                        <h2>자기소개 <button class="add-btn" data-section="intro" data-single="true">+ 추가</button></h2>
+                        <div class="items" id="intro"></div>
+                    </section>
+
+                    <section class="section">
+                        <h2>숙련 기술 <button class="add-btn" data-section="skills">+ 추가</button></h2>
+                        <div class="items" id="skills"></div>
+                    </section>
+
+                    <section class="section">
+                        <h2>활동 <button class="add-btn" data-section="activities">+ 추가</button></h2>
+                        <div class="items" id="activities"></div>
+                    </section>
+
+                    <section class="section">
+                        <h2>수상 및 자격증 <button class="add-btn" data-section="certifications">+ 추가</button></h2>
+                        <div class="items" id="certifications"></div>
+                    </section>
+                </div>
+
+                <!-- 우측 -->
+                <div class="right-col">
+                    <section class="section">
+                        <h2>경력 <button class="add-btn" data-section="experience">+ 추가</button></h2>
+                        <div class="items" id="experience"></div>
+                    </section>
+
+                    <section class="section">
+                        <h2>학력 <button class="add-btn" data-section="education">+ 추가</button></h2>
+                        <div class="items" id="education"></div>
+                    </section>
+
+                    <section class="section">
+                        <h2>사이드 프로젝트 <button class="add-btn" data-section="projects">+ 추가</button></h2>
+                        <div class="items" id="projects"></div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/resume.js"></script>
+</body>
+</html>
