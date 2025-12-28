@@ -2,7 +2,7 @@
 
 ### 노션 링크
 ```
-https://www.notion.so/2d64ba166b23813d976fc22286be4230
+https://www.notion.so/Interactive-Portfolio-Web-Application-2d64ba166b238069a547e450080db684
 ```
 
 ### 피그마 링크
