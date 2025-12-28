@@ -41,4 +41,5 @@ vBtn.onclick = function() {
 
 toolBtn.onclick = function() {
     tool.style.width = '300px';
+    canvas.style.marginLeft = "300px";
 };
