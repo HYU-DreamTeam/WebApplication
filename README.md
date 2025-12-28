@@ -18,11 +18,21 @@ https://hyu-dreamteam.github.io/WebApplication/
 ### 프로젝트 구조
 
 ```
-├── index.html
-├── style.css
-├── index.js
-├── nav/         (네비게이션 템플릿)
-├── resume/      (이력서)
-├── portfolio/   (포트폴리오)
-└── card/        (명함)
+├── index.html          (메인 페이지)
+├── portfolio.html      (포트폴리오 페이지)
+├── resume.html         (이력서 페이지)
+├── card.html           (명함 페이지)
+├── css/
+│   ├── style.css       (공통 스타일)
+│   ├── header.css      (헤더 스타일)
+│   └── portfolio.css   (포트폴리오 스타일)
+├── js/
+│   └── index.js        (JavaScript)
+└── assets/
+    ├── images/         (이미지)
+    │   ├── logo.png
+    │   ├── card.png
+    │   ├── portfolio.png
+    │   └── resume.png
+    └── font/           (폰트)
 ```
