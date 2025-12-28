@@ -1,7 +1,7 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body{
@@ -9,7 +9,7 @@ body{
 }
 
 header{
-    background-color: white;
+    background-color: #fff;
 }
 
 /* 배경을 어둡게 덮는 레이어 */
@@ -27,7 +27,7 @@ header{
 /* 중앙 화이트 박스 */
 .modal-content {
     position: relative;
-    background: white;
+    background: #fff;
     padding: 250px;
     border-radius: 20px;
     text-align: center;
@@ -71,6 +71,32 @@ header{
     cursor: pointer;
 }
 
-.modal-close-btn:hover{
-    cursor: pointer;
+#canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    height: 90vh;
+}
+
+.card {        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;       
+    max-height: 100%; 
+    box-sizing: border-box;
+}
+
+.card-horizontal {
+    width: 80%; 
+    max-width: 70%; 
+    aspect-ratio: 94 / 54;    
+    object-fit: contain;   
+}
+
+.card-vertical {    
+    width: auto; 
+    height: 80%;
+    max-width: 70%; 
+    aspect-ratio: 54 / 94;         
 }
