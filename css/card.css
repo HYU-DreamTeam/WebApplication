@@ -4,14 +4,6 @@
     box-sizing: border-box;
 }
 
-body{
-    -ms-overflow-style: none;
-}
-
-::-webkit-scrollbar {
-    display: none;
-}
-
 header{
     background-color: #fff;
 }
