@@ -71,7 +71,8 @@ header{
     display: flex;            
     overflow-y: scroll;
     justify-content: center;
-    align-items: center;       
+    align-items: center;   
+    background-color: #f1f2f4; 
     height: 90vh;
 }
 
@@ -161,18 +162,19 @@ header{
 }
 
 .tool-bar {
-    position: fixed;
+    position: absolute;
+    left: 0;
     width: 70px;
-    height: 100%;
+    height: calc(100vh - 80px);
     background-color: #fff;
     border: 1px solid #f1f2f4;
 }
 
 .template-bar {
-    position: fixed;
+    position: absolute;
     margin-left: 70px;
     width: 0px;
-    height: 100%;
+    height: calc(100vh - 80px);
     background-color: #fff;
     border: 1px solid #f1f2f4;
 }
