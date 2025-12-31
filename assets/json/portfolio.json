@@ -1,0 +1,76 @@
+{
+  "data": [
+    {
+      "title": "MCA YOLO Portfolio",
+      "description": "A web application showcasing a portfolio with interactive card fan effect using CSS variables.",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "image": "assets/images/project_portfolio.png",
+      "link": "https://example.com/portfolio",
+      "themeColor": "#6c5ce7"
+    },
+    {
+      "title": "Mint Choco Map",
+      "description": "A crowdsourced map service locating mint chocolate desserts nationwide.",
+      "technologies": ["React", "KakaoMap API", "Node.js"],
+      "image": "assets/images/project_mintmap.png",
+      "link": "https://example.com/mint-map",
+      "themeColor": "#00d2d3"
+    },
+    {
+      "title": "Festival Insight",
+      "description": "Data analysis dashboard visualizing success factors of local festivals from 2017-2025.",
+      "technologies": ["Python", "Pandas", "Matplotlib"],
+      "image": "assets/images/project_festival.png",
+      "link": "https://example.com/data-analysis",
+      "themeColor": "#ff7675"
+    },
+    {
+      "title": "EV3 Line Tracer",
+      "description": "Autonomous robot navigation algorithm using PID control and color sensors.",
+      "technologies": ["RobotC", "LEGO Mindstorms", "C++"],
+      "image": "assets/images/project_robot.png",
+      "link": "",
+      "themeColor": "#636e72"
+    },
+    {
+      "title": "Deep Stock RNN",
+      "description": "Time-series forecasting model predicting stock trends using LSTM neural networks.",
+      "technologies": ["PyTorch", "Python", "Flask"],
+      "image": "assets/images/project_ai.png",
+      "link": "https://github.com/example/rnn",
+      "themeColor": "#00b894"
+    },
+    {
+      "title": "SaaS ERP System",
+      "description": "B2B web solution for managing corporate accounting and tax invoices.",
+      "technologies": ["Vue.js", "Spring Boot", "MySQL"],
+      "image": "assets/images/project_erp.png",
+      "link": "",
+      "themeColor": "#0984e3"
+    },
+    {
+      "title": "My Workout Routine",
+      "description": "A fitness tracker app to log squat, lunge, and dumbbell exercises.",
+      "technologies": ["React Native", "Firebase"],
+      "image": "assets/images/project_fitness.png",
+      "link": "",
+      "themeColor": "#d63031"
+    },
+    {
+      "title": "Poem: Bandi",
+      "description": "Interactive kinetic typography web art based on the original poem 'Bandi'.",
+      "technologies": ["HTML5 Canvas", "GSAP"],
+      "image": "assets/images/project_poem.png",
+      "link": "https://example.com/bandi",
+      "themeColor": "#fdcb6e"
+    },
+    {
+      "title": "Poker Odds Calc",
+      "description": "Real-time Texas Hold'em win probability calculator based on chip count.",
+      "technologies": ["JavaScript", "Math.js"],
+      "image": "assets/images/project_poker.png",
+      "link": "",
+      "themeColor": "#2d3436"
+    }
+  ]
+}
