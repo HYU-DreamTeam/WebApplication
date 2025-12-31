@@ -5,7 +5,11 @@
 }
 
 body{
-    background-color: #F1F2F4;
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 header{
