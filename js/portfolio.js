@@ -7,6 +7,8 @@ const fanWrapper = document.getElementById('fan-wrapper');
 
 const jsonData = [];
 
+const MAX_CARDS = 16;
+
 let currIdx = 4;
 
 window.onload = () => {
@@ -30,30 +32,42 @@ function initDOMElements() {
 }
 
 function reloadCardOption() {
-    cards.forEach((card, index) => {
-        //3 -> 16 ~ 7, 4 -> 0 ~ 8
-        
-        if(getCircularRange(currIdx).includes(index)) {
-            const rotateDeg = (getCircularRange(currIdx).indexOf(index) - 4) * 15;
-            card.style.opacity = '1';
-            card.style.setProperty('--rotate-deg', `${rotateDeg}deg`);
-            card.style.zIndex = 4 - Math.abs(getCircularRange(currIdx).indexOf(index) - 4);
+    for(let i = 0; i < MAX_CARDS; i++) {
+        if(getCircularRange(currIdx).includes(i)) {
+            const rotateDeg = (getCircularRange(currIdx).indexOf(i) - 4) * 15;
+            cards[i].style.opacity = '1';
+            cards[i].style.setProperty('--rotate-deg', `${rotateDeg}deg`);
+            cards[i].style.zIndex = 4 - Math.abs(getCircularRange(currIdx).indexOf(i) - 4);
         } else {
-            card.style.opacity = '0';
+            cards[i].style.opacity = '0';
         }
-    })
+    }
 }
 
 function buildPortFolioCards() {
-    jsonData.forEach((item, index) => {
+
+
+    for(let i = 0; i < MAX_CARDS; i++) {
         const newCard = initCard.cloneNode(true);
-        newCard.id = `card_${index}`;
-        newCard.querySelector('span').innerText = item.title;
-        newCard.querySelector('em').innerText = index+1;
-        newCard.style.backgroundColor = item.color;
+        newCard.id = `card_${i}`;
+
+        if(i >= jsonData.length) {
+            newCard.querySelector('span').innerText = "EMPTY";
+            newCard.querySelector('em').innerText = "X";
+            newCard.style.backgroundColor = "#555";
+        } else {
+            const item = jsonData[i];
+            const index = i;
+
+            newCard.querySelector('span').innerText = item.title;
+            newCard.querySelector('em').innerText = index+1;
+            newCard.style.backgroundColor = item.themeColor;
+        }
+
         newCard.style.display = 'flex';
+
         fanWrapper.appendChild(newCard);
-    });
+    }
 
     initCard.remove();
 }
