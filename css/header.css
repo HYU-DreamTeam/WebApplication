@@ -4,6 +4,26 @@ a {
     text-decoration: none;
 }
 
+/* web font cdn */
+
+
+/* Pretendard */
+
+/* * {
+    font-family: 'Pretendard', sans-serif;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+} */
+
+
+
+
+
 header {
     border-bottom: 1px solid #eee;
 }
