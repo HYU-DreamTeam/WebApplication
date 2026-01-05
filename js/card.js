@@ -11,12 +11,19 @@ const newCard = document.createElement('div');
 const cardFront = document.createElement('div');
 const cardBack = document.createElement('div');
 
+let side = '';
+
 let activateTool = false;
 let trunCard = false;
 
+let fullData = null;
+let activeTypeName = null;
+let activeElement = null;
+let offsetPercent = { x: 0, y: 0 };
+
 // 페이지 로드 시 팝업 보이기
 window.onload = function() {
-    modal.style.display = 'flex';
+    modal.style.display = 'flex';    
 };
 
 // canvas에 card 만들기
@@ -39,15 +46,18 @@ function createCard(type) {
     canvas.appendChild(newCard);
     
     modal.style.display = 'none';
+    callJsonData();
 }
 
 // 버튼 클릭 시 크기 정의 후, 팝업 숨기기
 hBtn.onclick = function() {
-    createCard('horizontal');    
+    side = 'horizontal';
+    createCard(side);    
 };
 
 vBtn.onclick = function() {
-    createCard('vertical');    
+    side = 'vertical';
+    createCard(side);    
 };
 
 templateBtn.onclick = function() {
@@ -69,4 +79,69 @@ canvasTrunBtn.onclick = function(){
 
     cardFront.style.transform = 'rotateY(' + frontDeg + ')';
     cardBack.style.transform = 'rotateY(' + backDeg + ')';        
+
 }
+
+// JSON 파일 읽어오기 (계속 찾아보다가 코드 이해 ㅈ같이 어려워서 박재형씨 코드 오마주)
+async function callJsonData() {
+
+    const request = new XMLHttpRequest();
+    request.open('GET', './assets/json/card.json', true);
+    
+    request.responseType = 'json';
+
+    request.onload = function() {
+        if (request.status >= 200 && request.status < 400) {            
+            fullData = this.response;             
+            createCardTemplates(fullData);            
+
+            console.log("데이터 로드 및 카드 생성 완료!");
+        } else {            
+            alert("데이터를 가져오는 중 오류가 발생했습니다.");
+        }
+    };
+    request.send();
+}
+
+// 타입 개수만큼 카드 그리는 함수
+function createCardTemplates(data) {
+    template.innerHTML = "";
+    const keys = Object.keys(data); 
+
+    for(let i = 0; i < keys.length; i++){
+        const typeName = keys[i];
+
+        const templateCard = document.createElement('div');
+        templateCard.className = 'card-template';
+
+        if('card-' + side === 'card-horizontal'){
+            templateCard.style.width = "80%";
+            templateCard.style.height = "auto";
+            templateCard.style.aspectRatio = "94 / 54";
+        }
+        else{
+            templateCard.style.width = "auto";
+            templateCard.style.height = "47%";
+            templateCard.style.aspectRatio = "54 / 94";
+        }
+
+        templateCard.innerHTML = `
+            <div class="card-info">
+                <span class="type-name">${typeName}</span>
+                <p>항목 개수: ${data[typeName].length}개</p>
+            </div>
+        `;
+
+        templateCard.onclick = function() {
+            console.log(`${typeName} 선택됨`);
+
+            const allCards = document.querySelectorAll('.card-template');
+            for (let j = 0; j < allCards.length; j++) {
+                allCards[j].classList.remove('active');
+            }
+            templateCard.classList.add('active');
+        };
+        template.appendChild(templateCard);
+    }
+}
+

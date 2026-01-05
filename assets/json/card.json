@@ -1,0 +1,222 @@
+{
+  "Type-A": [
+    {
+        "text": "아무개", 
+        "x": 0,
+        "y": 0,
+        "width": 180,
+        "font-size": 17
+    },
+    {
+        "text": "직업", 
+        "x": 0,
+        "y": 0,
+        "width": 180,
+        "font-size": 16
+    },
+    {
+        "text": "회사 이름", 
+        "x": 0,
+        "y": 0,
+        "width": 180,
+        "font-size": 17
+    },
+    {
+        "text": "주소", 
+        "x": 0,
+        "y": 0,
+        "width": 180,
+        "font-size": 17
+    },
+    {
+        "text": "전화번호", 
+        "x": 0,
+        "y": 0,
+        "width": 180,
+        "font-size": 17
+    },
+    {
+        "text": "이메일", 
+        "x": 0,
+        "y": 0,
+        "width": 180,
+        "font-size": 17
+    } 
+  ],
+  "Type-B": [
+    {
+        "text": "아무개", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "직업", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 16
+    },
+    {
+        "text": "회사 이름", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "주소", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "전화번호", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "이메일", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    } 
+  ],
+  "Type-C": [
+    {
+        "text": "아무개", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "직업", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 16
+    },
+    {
+        "text": "회사 이름", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "주소", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "전화번호", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "이메일", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    } 
+  ],
+  "Type-D": [
+    {
+        "text": "아무개", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "직업", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 16
+    },
+    {
+        "text": "회사 이름", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "주소", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "전화번호", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "이메일", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    } 
+  ],
+  "Type-E": [
+    {
+        "text": "아무개", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "직업", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 16
+    },
+    {
+        "text": "회사 이름", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "주소", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "전화번호", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    },
+    {
+        "text": "이메일", 
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "font-size": 17
+    } 
+  ]
+}
