@@ -112,7 +112,7 @@ function getCircularRange(currIdx) {
 
 async function callJsonData() {
     const request = new XMLHttpRequest();
-    request.open('GET', '../assets/json/portfolio.json', true);
+    request.open('GET', './assets/json/portfolio.json', true);
     request.responseText = 'json';
 
     request.onload = function() {
