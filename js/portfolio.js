@@ -5,6 +5,11 @@ const nextBtn = document.getElementById('next_btn');
 const fanContainer = document.getElementById('fan-container');
 const fanWrapper = document.getElementById('fan-wrapper');
 
+const detailContainer = document.getElementById('detail-container');
+const detailTitle = document.getElementById('detail-title');
+const detailDescription = document.getElementById('detail-description');
+const closeBtn = document.getElementById('close_btn');
+
 const jsonData = [];
 
 const MAX_CARDS = 16;
@@ -19,12 +24,32 @@ window.onload = () => {
 
 function addEventListeners() {
     nextBtn.addEventListener('click', () => {
-    currIdx++;
-    if(currIdx >= cards.length) {
-        currIdx = 0;
+        currIdx++;
+        if(currIdx >= cards.length) {
+            currIdx = 0;
+        }
+
+        reloadCardOption();
+    });
+
+    for(let i = 0; i < MAX_CARDS; i++) {
+        cards[i].addEventListener('click', () => {
+            currIdx = i+1;
+            reloadCardOption();
+            
+            detailContainer.classList.add('active');
+
+            detailTitle.innerText = jsonData[i] ? jsonData[i].title : 'EMPTY';
+            detailDescription.innerText = jsonData[i] ? jsonData[i].description : 'No Data Available.';
+            detailContainer.style.backgroundColor = jsonData[i] ? jsonData[i].themeColor : '#555';
+        });
     }
-    reloadCardOption();
-});
+
+    closeBtn.addEventListener('click', () => {
+        detailContainer.classList.remove('active');
+    });
+
+
 }
 
 function initDOMElements() {
@@ -32,7 +57,9 @@ function initDOMElements() {
 }
 
 function reloadCardOption() {
+    
     for(let i = 0; i < MAX_CARDS; i++) {
+        
         if(getCircularRange(currIdx).includes(i)) {
             const rotateDeg = (getCircularRange(currIdx).indexOf(i) - 4) * 15;
             cards[i].style.opacity = '1';
@@ -45,7 +72,6 @@ function reloadCardOption() {
 }
 
 function buildPortFolioCards() {
-
 
     for(let i = 0; i < MAX_CARDS; i++) {
         const newCard = initCard.cloneNode(true);
@@ -81,7 +107,6 @@ function getCircularRange(currIdx) {
 
     result.push(adjustedIdx);
   }
-  console.log(result)
   return result;
 }
 
