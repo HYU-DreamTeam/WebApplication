@@ -6,6 +6,8 @@ const fanContainer = document.getElementById('fan-container');
 const fanWrapper = document.getElementById('fan-wrapper');
 
 const detailContainer = document.getElementById('detail-container');
+const detailCaptureArea = document.getElementById('capture_area');
+const downloadBtn = document.getElementById('download_btn');
 const detailTitle = document.getElementById('detail-title');
 const detailDescription = document.getElementById('detail-description');
 const closeBtn = document.getElementById('close_btn');
@@ -42,6 +44,7 @@ function addEventListeners() {
             detailTitle.innerText = jsonData[i] ? jsonData[i].title : 'EMPTY';
             detailDescription.innerText = jsonData[i] ? jsonData[i].description : 'No Data Available.';
             detailContainer.style.backgroundColor = jsonData[i] ? jsonData[i].themeColor : '#555';
+            // detailCaptureArea.style.backgroundColor = jsonData[i] ? jsonData[i].themeColor : '#555';
         });
     }
 
@@ -49,6 +52,19 @@ function addEventListeners() {
         detailContainer.classList.remove('active');
     });
 
+    downloadBtn.addEventListener('click', () => {
+        html2canvas(detailContainer).then(function(canvas) {
+            const captureImgData = canvas.toDataURL('image/png');
+
+            const link = document.createElement('a');
+            link.href = captureImgData;
+            link.download = `${detailTitle.innerText}.png`;
+        
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+    });
+    });
 
 }
 
