@@ -24,29 +24,53 @@
     </header>
 
     <main class="resume-page">
-        <div class="resume-container">
+        <!-- 액션 버튼 -->
+        <div class="resume-actions">
+            <button id="edit-btn" class="action-btn">편집</button>
+            <button id="pdf-btn" class="action-btn pdf-btn">PDF 다운로드</button>
+        </div>
+
+        <div class="resume-container" id="resume-container">
+            <!-- 헤더 (프로필) -->
+            <div class="resume-header">
+                <div class="profile-image-box">
+                    <div class="profile-image" id="profile-image"></div>
+                    <input type="file" id="profile-input" accept="image/*" class="edit-only" style="display:none;">
+                    <label for="profile-input" class="profile-upload-btn edit-only">프로필 업로드</label>
+                </div>
+                <div class="profile-info">
+                    <input type="text" id="name-input" class="name-input edit-only" placeholder="이름">
+                    <div id="name-display" class="name-display view-only"></div>
+                    <div class="contact-info">
+                        <input type="email" id="email-input" class="contact-input edit-only" placeholder="이메일">
+                        <div id="email-display" class="contact-display view-only"></div>
+                        <input type="tel" id="phone-input" class="contact-input edit-only" placeholder="전화번호">
+                        <div id="phone-display" class="contact-display view-only"></div>
+                    </div>
+                </div>
+            </div>
 
             <!-- 콘텐츠 -->
             <div class="resume-content">
                 <!-- 좌측 -->
                 <div class="left-col">
                     <section class="section">
-                        <h2>자기소개 <button class="add-btn" data-section="intro" data-single="true">+ 추가</button></h2>
+                        <h2>자기소개 <button class="add-btn edit-only" data-section="intro" data-single="true">+ 추가</button></h2>
                         <div class="items" id="intro"></div>
                     </section>
 
                     <section class="section">
-                        <h2>숙련 기술 <button class="add-btn" data-section="skills">+ 추가</button></h2>
+                        <h2>숙련 기술 <button class="add-btn edit-only" data-section="skills">+ 추가</button></h2>
                         <div class="items" id="skills"></div>
                     </section>
 
                     <section class="section">
-                        <h2>활동 <button class="add-btn" data-section="activities">+ 추가</button></h2>
+                        <h2>활동 <button class="add-btn edit-only" data-section="activities">+ 추가</button></h2>
                         <div class="items" id="activities"></div>
                     </section>
 
                     <section class="section">
-                        <h2>수상 및 자격증 <button class="add-btn" data-section="certifications">+ 추가</button></h2>
+                        <h2>수상 및 자격증 <button class="add-btn edit-only" data-section="certifications">+ 추가</button></h2>
                         <div class="items" id="certifications"></div>
                     </section>
                 </div>
@@ -54,17 +78,17 @@
                 <!-- 우측 -->
                 <div class="right-col">
                     <section class="section">
-                        <h2>경력 <button class="add-btn" data-section="experience">+ 추가</button></h2>
+                        <h2>경력 <button class="add-btn edit-only" data-section="experience">+ 추가</button></h2>
                         <div class="items" id="experience"></div>
                     </section>
 
                     <section class="section">
-                        <h2>학력 <button class="add-btn" data-section="education">+ 추가</button></h2>
+                        <h2>학력 <button class="add-btn edit-only" data-section="education">+ 추가</button></h2>
                         <div class="items" id="education"></div>
                     </section>
 
                     <section class="section">
-                        <h2>사이드 프로젝트 <button class="add-btn" data-section="projects">+ 추가</button></h2>
+                        <h2>사이드 프로젝트 <button class="add-btn edit-only" data-section="projects">+ 추가</button></h2>
                         <div class="items" id="projects"></div>
                     </section>
                 </div>

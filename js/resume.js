@@ -1,3 +1,19 @@
+// 편집 모드 상태
+let isEditing = false;
+
+// DOM 요소
+const resumeContainer = document.getElementById('resume-container');
+const editBtn = document.getElementById('edit-btn');
+const pdfBtn = document.getElementById('pdf-btn');
+const profileImage = document.getElementById('profile-image');
+const profileInput = document.getElementById('profile-input');
+const nameInput = document.getElementById('name-input');
+const nameDisplay = document.getElementById('name-display');
+const emailInput = document.getElementById('email-input');
+const emailDisplay = document.getElementById('email-display');
+const phoneInput = document.getElementById('phone-input');
+const phoneDisplay = document.getElementById('phone-display');
+
 // 섹션별 필드 정의
 const fields = {
     intro: ['intro'],
@@ -28,6 +44,79 @@ const placeholders = {
     grade: '성적/비고'
 };
 
+// 편집/저장 버튼 클릭
+editBtn.addEventListener('click', () => {
+    if (isEditing) {
+        // 저장 모드로 전환
+        saveData();
+        resumeContainer.classList.remove('editing');
+        editBtn.textContent = '편집';
+    } else {
+        // 편집 모드로 전환
+        resumeContainer.classList.add('editing');
+        editBtn.textContent = '저장';
+    }
+    isEditing = !isEditing;
+});
+
+// PDF 버튼 (기능은 나중에 구현)
+pdfBtn.addEventListener('click', () => {
+    alert('PDF 다운로드 기능은 추후 구현 예정입니다.');
+});
+
+// 프로필 이미지 업로드
+profileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            profileImage.style.backgroundImage = `url(${reader.result})`;
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// 데이터 저장 (화면에 반영)
+function saveData() {
+    // 프로필 정보 저장
+    nameDisplay.textContent = nameInput.value;
+    emailDisplay.textContent = emailInput.value;
+    phoneDisplay.textContent = phoneInput.value;
+
+    // 각 섹션의 아이템들 저장
+    document.querySelectorAll('.item, .skill-item').forEach(item => {
+        updateViewText(item);
+    });
+}
+
+// 아이템의 view-text 업데이트
+function updateViewText(item) {
+    const inputs = item.querySelectorAll('input, textarea');
+    let viewContainer = item.querySelector('.view-container');
+
+    if (!viewContainer) {
+        viewContainer = document.createElement('div');
+        viewContainer.className = 'view-container view-text';
+        item.appendChild(viewContainer);
+    }
+
+    let html = '';
+    inputs.forEach((input, index) => {
+        const value = input.value.trim();
+        if (value) {
+            if (index === 0) {
+                html += `<div class="item-title">${value}</div>`;
+            } else if (input.tagName === 'TEXTAREA') {
+                html += `<div class="item-desc">${value}</div>`;
+            } else {
+                html += `<div class="item-sub">${value}</div>`;
+            }
+        }
+    });
+
+    viewContainer.innerHTML = html;
+}
+
 // + 버튼 클릭 시 입력 필드 추가
 document.querySelectorAll('.add-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -48,7 +137,7 @@ function addItem(section, container) {
     const item = document.createElement('div');
     item.className = section === 'skills' ? 'skill-item' : 'item';
 
-    let html = `<button class="remove-btn" onclick="this.parentElement.remove()">닫기</button>`;
+    let html = `<button class="remove-btn" onclick="this.parentElement.remove()">삭제</button>`;
 
     if (section === 'intro') {
         html += `<textarea placeholder="${placeholders.intro}"></textarea>`;
@@ -64,9 +153,15 @@ function addItem(section, container) {
         });
     }
 
+    // 보기용 컨테이너 추가
+    html += `<div class="view-container view-text"></div>`;
+
     item.innerHTML = html;
     container.appendChild(item);
 
     // 첫 번째 입력 필드에 포커스
-    item.querySelector('input, textarea').focus();
+    const firstInput = item.querySelector('input, textarea');
+    if (firstInput) {
+        firstInput.focus();
+    }
 }
