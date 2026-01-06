@@ -68,6 +68,9 @@ function addEventListeners() {
 
 }
 
+// JSON 에서 카테고리 불러온 다음에, 리스트로 병합해 SELECT 박스 생성 - TASK 1
+
+
 function initDOMElements() {
     cards = document.querySelectorAll('.card');
 }

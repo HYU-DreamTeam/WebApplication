@@ -1,6 +1,7 @@
 {
   "data": [
     {
+      "category": "Creative & Interactive",
       "title": "MCA YOLO Portfolio",
       "description": "A web application showcasing a portfolio with interactive card fan effect using CSS variables.",
       "technologies": ["HTML", "CSS", "JavaScript"],
@@ -9,6 +10,7 @@
       "themeColor": "#6c5ce7"
     },
     {
+      "category": "Web & Mobile Service",
       "title": "Mint Choco Map",
       "description": "A crowdsourced map service locating mint chocolate desserts nationwide.",
       "technologies": ["React", "KakaoMap API", "Node.js"],
@@ -17,6 +19,7 @@
       "themeColor": "#00d2d3"
     },
     {
+      "category": "Data & AI Research",
       "title": "Festival Insight",
       "description": "Data analysis dashboard visualizing success factors of local festivals from 2017-2025.",
       "technologies": ["Python", "Pandas", "Matplotlib"],
@@ -25,6 +28,7 @@
       "themeColor": "#ff7675"
     },
     {
+      "category": "Embedded & Robotics",
       "title": "EV3 Line Tracer",
       "description": "Autonomous robot navigation algorithm using PID control and color sensors.",
       "technologies": ["RobotC", "LEGO Mindstorms", "C++"],
@@ -33,6 +37,7 @@
       "themeColor": "#636e72"
     },
     {
+      "category": "Data & AI Research",
       "title": "Deep Stock RNN",
       "description": "Time-series forecasting model predicting stock trends using LSTM neural networks.",
       "technologies": ["PyTorch", "Python", "Flask"],
@@ -41,6 +46,7 @@
       "themeColor": "#00b894"
     },
     {
+      "category": "Web & Mobile Service",
       "title": "SaaS ERP System",
       "description": "B2B web solution for managing corporate accounting and tax invoices.",
       "technologies": ["Vue.js", "Spring Boot", "MySQL"],
@@ -49,6 +55,7 @@
       "themeColor": "#0984e3"
     },
     {
+      "category": "Web & Mobile Service",
       "title": "My Workout Routine",
       "description": "A fitness tracker app to log squat, lunge, and dumbbell exercises.",
       "technologies": ["React Native", "Firebase"],
@@ -57,6 +64,7 @@
       "themeColor": "#d63031"
     },
     {
+      "category": "Creative & Interactive",
       "title": "Poem: Bandi",
       "description": "Interactive kinetic typography web art based on the original poem 'Bandi'.",
       "technologies": ["HTML5 Canvas", "GSAP"],
@@ -65,6 +73,7 @@
       "themeColor": "#fdcb6e"
     },
     {
+      "category": "Data & AI Research",
       "title": "Poker Odds Calc",
       "description": "Real-time Texas Hold'em win probability calculator based on chip count.",
       "technologies": ["JavaScript", "Math.js"],
