@@ -1,222 +1,320 @@
 {
-  "Type-A": [
-    {
-        "text": "아무개", 
-        "x": 0,
-        "y": 0,
-        "width": 180,
-        "font-size": 17
-    },
-    {
-        "text": "직업", 
-        "x": 0,
-        "y": 0,
-        "width": 180,
-        "font-size": 16
-    },
-    {
-        "text": "회사 이름", 
-        "x": 0,
-        "y": 0,
-        "width": 180,
-        "font-size": 17
-    },
-    {
-        "text": "주소", 
-        "x": 0,
-        "y": 0,
-        "width": 180,
-        "font-size": 17
-    },
-    {
-        "text": "전화번호", 
-        "x": 0,
-        "y": 0,
-        "width": 180,
-        "font-size": 17
-    },
-    {
-        "text": "이메일", 
-        "x": 0,
-        "y": 0,
-        "width": 180,
-        "font-size": 17
-    } 
-  ],
-  "Type-B": [
-    {
-        "text": "아무개", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "직업", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 16
-    },
-    {
-        "text": "회사 이름", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "주소", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "전화번호", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "이메일", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    } 
-  ],
-  "Type-C": [
-    {
-        "text": "아무개", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "직업", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 16
-    },
-    {
-        "text": "회사 이름", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "주소", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "전화번호", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "이메일", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    } 
-  ],
-  "Type-D": [
-    {
-        "text": "아무개", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "직업", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 16
-    },
-    {
-        "text": "회사 이름", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "주소", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "전화번호", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "이메일", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    } 
-  ],
-  "Type-E": [
-    {
-        "text": "아무개", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "직업", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 16
-    },
-    {
-        "text": "회사 이름", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "주소", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "전화번호", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    },
-    {
-        "text": "이메일", 
-        "x": 0,
-        "y": 0,
-        "width": 30,
-        "font-size": 17
-    } 
-  ]
+    "TypeA": [
+        {
+            "img-path": "./assets/images/card.png"
+        },
+        {
+            "id": "name",
+            "text": "아무개",
+            "x": 60,
+            "y": 180,
+            "width": 400,
+            "font-size": 48
+        },
+        {
+            "id": "job",
+            "text": "Software Engineer",
+            "x": 65,
+            "y": 245,
+            "width": 400,
+            "font-size": 20
+        },
+        {
+            "id": "company",
+            "text": "Gemini Tech Lab",
+            "x": 60,
+            "y": 60,
+            "width": 400,
+            "font-size": 24
+        },
+        {
+            "id": "address",
+            "text": "서울특별시 강남구 테헤란로 123",
+            "x": 550,
+            "y": 380,
+            "width": 340,
+            "font-size": 16
+        },
+        {
+            "id": "tel-extension",
+            "text": "T. 02-1234-5678",
+            "x": 550,
+            "y": 415,
+            "width": 340,
+            "font-size": 16
+        },
+        {
+            "id": "email",
+            "text": "hello@world.com",
+            "x": 550,
+            "y": 450,
+            "width": 340,
+            "font-size": 16
+        }
+    ],
+    "TypeB": [
+        {
+            "img-path": "./assets/images/card.png"
+        },
+        {
+            "id": "name",
+            "text": "아무개",
+            "x": 270,
+            "y": 180,
+            "width": 400,
+            "font-size": 52
+        },
+        {
+            "id": "job",
+            "text": "Designer",
+            "x": 270,
+            "y": 250,
+            "width": 400,
+            "font-size": 18
+        },
+        {
+            "id": "company",
+            "text": "DESIGN STUDIO",
+            "x": 270,
+            "y": 120,
+            "width": 400,
+            "font-size": 22
+        },
+        {
+            "id": "address",
+            "text": "인천광역시 연수구 송도동 456",
+            "x": 270,
+            "y": 350,
+            "width": 400,
+            "font-size": 15
+        },
+        {
+            "id": "tel-extension",
+            "text": "M. 010-9876-5432",
+            "x": 270,
+            "y": 380,
+            "width": 400,
+            "font-size": 15
+        },
+        {
+            "id": "email",
+            "text": "creative@studio.com",
+            "x": 270,
+            "y": 410,
+            "width": 400,
+            "font-size": 15
+        }
+    ],
+    "TypeC": [
+        {
+            "img-path": "./assets/images/card.png"
+        },
+        {
+            "id": "name",
+            "text": "아무개",
+            "x": 540,
+            "y": 100,
+            "width": 340,
+            "font-size": 45
+        },
+        {
+            "id": "job",
+            "text": "Product Manager",
+            "x": 540,
+            "y": 160,
+            "width": 340,
+            "font-size": 18
+        },
+        {
+            "id": "company",
+            "text": "INNOVATION CO.",
+            "x": 60,
+            "y": 450,
+            "width": 300,
+            "font-size": 22
+        },
+        {
+            "id": "address",
+            "text": "부산광역시 해운대구 우동 789",
+            "x": 540,
+            "y": 380,
+            "width": 340,
+            "font-size": 15
+        },
+        {
+            "id": "tel-extension",
+            "text": "T. 051-789-0123",
+            "x": 540,
+            "y": 410,
+            "width": 340,
+            "font-size": 15
+        },
+        {
+            "id": "email",
+            "text": "pm@innovation.co.kr",
+            "x": 540,
+            "y": 440,
+            "width": 340,
+            "font-size": 15
+        }
+    ],
+    "TypeD": [
+        {
+            "img-path": "./assets/images/card.png"
+        },
+        {
+            "id": "name",
+            "text": "아무개",
+            "x": 60,
+            "y": 350,
+            "width": 300,
+            "font-size": 55
+        },
+        {
+            "id": "job",
+            "text": "Artist",
+            "x": 60,
+            "y": 420,
+            "width": 300,
+            "font-size": 20
+        },
+        {
+            "id": "company",
+            "text": "ART GALLERY",
+            "x": 60,
+            "y": 50,
+            "width": 300,
+            "font-size": 30
+        },
+        {
+            "id": "address",
+            "text": "주소 생략 가능 모델",
+            "x": 600,
+            "y": 60,
+            "width": 280,
+            "font-size": 14
+        },
+        {
+            "id": "tel-extension",
+            "text": "010-0000-0000",
+            "x": 600,
+            "y": 90,
+            "width": 280,
+            "font-size": 14
+        },
+        {
+            "id": "email",
+            "text": "art@gallery.com",
+            "x": 600,
+            "y": 120,
+            "width": 280,
+            "font-size": 14
+        }
+    ],
+    "TypeE": [
+        {
+            "img-path": "./assets/images/card.png"
+        },
+        {
+            "id": "name",
+            "text": "아무개",
+            "x": 320,
+            "y": 240,
+            "width": 300,
+            "font-size": 60
+        },
+        {
+            "id": "job",
+            "text": "CEO",
+            "x": 320,
+            "y": 310,
+            "width": 300,
+            "font-size": 22
+        },
+        {
+            "id": "company",
+            "text": "GLOBAL HOLDINGS",
+            "x": 0,
+            "y": 100,
+            "width": 940,
+            "font-size": 25
+        },
+        {
+            "id": "address",
+            "text": "본사: 뉴욕 월스트리트",
+            "x": 0,
+            "y": 400,
+            "width": 940,
+            "font-size": 15
+        },
+        {
+            "id": "tel-extension",
+            "text": "대표전화: 1588-0000",
+            "x": 0,
+            "y": 430,
+            "width": 940,
+            "font-size": 15
+        },
+        {
+            "id": "email",
+            "text": "ceo@global.com",
+            "x": 0,
+            "y": 460,
+            "width": 940,
+            "font-size": 15
+        }
+    ],
+    "TypeF": [
+        {
+            "img-path": "./assets/images/card.png"
+        },
+        {
+            "id": "name",
+            "text": "아무개",
+            "x": 40,
+            "y": 40,
+            "width": 300,
+            "font-size": 40
+        },
+        {
+            "id": "job",
+            "text": "Consultant",
+            "x": 40,
+            "y": 95,
+            "width": 300,
+            "font-size": 18
+        },
+        {
+            "id": "company",
+            "text": "ADVISORY GROUP",
+            "x": 600,
+            "y": 460,
+            "width": 300,
+            "font-size": 22
+        },
+        {
+            "id": "address",
+            "text": "세종특별자치시 도담동",
+            "x": 40,
+            "y": 400,
+            "width": 300,
+            "font-size": 15
+        },
+        {
+            "id": "tel-extension",
+            "text": "044-123-4567",
+            "x": 40,
+            "y": 430,
+            "width": 300,
+            "font-size": 15
+        },
+        {
+            "id": "email",
+            "text": "help@advisory.com",
+            "x": 40,
+            "y": 460,
+            "width": 300,
+            "font-size": 15
+        }
+    ]
 }
