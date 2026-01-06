@@ -108,7 +108,10 @@ async function callJsonData() {
 // 타입 개수만큼 템플릿 부분에 카드 그리는 함수
 function createCardTemplates(data) {
 
-    const keys = Object.keys(data);
+    const currentGroup = data[side];
+    const keys = Object.keys(currentGroup);
+
+    template.innerHTML = '';
 
     for (let i = 0; i < keys.length; i++) {
         const typeName = keys[i];
@@ -129,22 +132,32 @@ function createCardTemplates(data) {
 
         templateCard.innerHTML = `
             <div class="card-info">
-                <img src="${data[typeName][0]["img-path"]}" alt="${typeName}">
+                <img src="${currentGroup[typeName]["preview-img"]}" alt="${typeName}">
             </div>
         `;
 
         templateCard.onclick = function () {
             console.log(`${typeName} 선택됨`);
             cardFront.innerHTML = '';
+            cardBack.innerHTML = '';
 
-            for (let j = 0; j < data[typeName].length - 1; j++) {
-                drawCardElement(data[typeName][j + 1]);
-                console.log(j + 1);
+            const typeData = currentGroup[typeName];
+
+            const frontList = typeData.front;
+            for (let j = 0; j < frontList.length; j++) {
+                const element = frontList[j];
+                drawCardElement(element, cardFront);
+            }
+
+            const backList = typeData.back;
+            for (let k = 0; k < backList.length; k++) {
+                const element = backList[k];
+                drawCardElement(element, cardBack);
             }
 
             const allCards = document.querySelectorAll('.card-template');
-            for (let k = 0; k < allCards.length; k++) {
-                allCards[k].classList.remove('active');
+            for (let m = 0; m < allCards.length; m++) {
+                allCards[m].classList.remove('active');
             }
             templateCard.classList.add('active');
         };
@@ -153,7 +166,7 @@ function createCardTemplates(data) {
 }
 
 // 캔버스 위에 요소 배치
-function drawCardElement(element) {
+function drawCardElement(element, target) {
 
     const newElement = document.createElement('div');
     newElement.className = 'card-element';
@@ -179,6 +192,6 @@ function drawCardElement(element) {
                autocomplete="off">
         `;
 
-    cardFront.appendChild(newElement);
+    target.appendChild(newElement);
 }
 

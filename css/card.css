@@ -123,6 +123,7 @@
     transform: rotateY(180deg);
     background-color: white; 
     position: relative;
+    container-type: inline-size;
 }
 
 .card-vertical {        
@@ -143,14 +144,15 @@
     width: 100%;
     height: 100%; 
     transform: rotateY(180deg);
-    background-color: white;                
+    background-color: white;    
+    container-type: inline-size;            
 }
 
 .tool-button {
     width: 60px;
     height: 60px;
     margin: auto;
-    font-size: 20px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
