@@ -59,10 +59,45 @@ editBtn.addEventListener('click', () => {
     isEditing = !isEditing;
 });
 
-// PDF 버튼 (기능은 나중에 구현)
+//박재형 코드 참조
+// PNG 다운로드 버튼 (A4 사이즈: 2480 x 3508 픽셀 @ 300dpi)
 pdfBtn.addEventListener('click', () => {
-    alert('PDF 다운로드 기능은 추후 구현 예정입니다.');
+    const A4_WIDTH = 2480;
+    const A4_HEIGHT = 3508;
+
+    html2canvas(resumeContainer, {
+        scale: 3,
+        useCORS: true,
+        backgroundColor: '#ffffff'
+    }).then(function(canvas) {
+        // A4 비율에 맞는 새 캔버스 생성
+        const a4Canvas = document.createElement('canvas');
+        a4Canvas.width = A4_WIDTH;
+        a4Canvas.height = A4_HEIGHT;
+        const ctx = a4Canvas.getContext('2d');
+
+        // 흰색 배경
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, A4_WIDTH, A4_HEIGHT);
+
+        // 원본 이미지를 A4 캔버스에 맞게 그리기
+        const scale = Math.min(A4_WIDTH / canvas.width, A4_HEIGHT / canvas.height);
+        const x = (A4_WIDTH - canvas.width * scale) / 2;
+        const y = 0;
+        ctx.drawImage(canvas, x, y, canvas.width * scale, canvas.height * scale);
+
+        const captureImgData = a4Canvas.toDataURL('image/png');
+
+        const link = document.createElement('a');
+        link.href = captureImgData;
+        link.download = `${nameDisplay.textContent || 'resume'}.png`;
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
 });
+//박재형 코드 참조
 
 // 프로필 이미지 업로드
 profileInput.addEventListener('change', (e) => {
