@@ -68,6 +68,21 @@ body {
     text-align: center;
     cursor: pointer;
 }
+#detail-container #edit_btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(0,0,0,0);
+    color: #fff;
+    border: white 3px solid;
+    border-radius: 4px;
+    font-weight: bold;
+    width: 140px;
+    height: 40px;
+    font-size: 1.2rem;
+    text-align: center;
+    cursor: pointer;
+}
 #detail-container #category-container{
     margin: 10px 0;
 
@@ -166,3 +181,55 @@ body {
     font-size: 22px;
     font-weight: bold;
 }
+
+/* 기본 상태: 편집 필드는 숨김 */
+.edit-field {
+    display: none;
+    max-width: 70%;
+}
+
+/* 편집 모드 상태: 뷰 필드는 숨기고 편집 필드는 보임 */
+#detail-container.editing .view-field {
+    display: none !important;
+}
+#detail-container.editing .edit-field {
+    display: flex; /* 혹은 inline-block, flex 등 상황에 맞게 */
+}
+
+
+/* 아이콘 프리셋 박스 스타일 */
+.preset-box {
+    display: none; /* 평소엔 숨김 */
+    position: absolute;
+    top: 35px; /* 인풋 바로 아래 */
+    left: 0;
+    width: 160px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    padding: 8px;
+    z-index: 999;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* 활성화되면 flex로 보임 */
+.preset-box.show {
+    display: flex;
+}
+
+/* 아이콘 하나하나 스타일 */
+.preset-box span {
+    font-size: 1.2rem;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.preset-box span:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.2);
+}
+

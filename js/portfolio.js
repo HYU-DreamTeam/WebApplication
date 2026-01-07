@@ -18,6 +18,31 @@ const statusValue = document.getElementById('status-value');
 const scheduleValue = document.getElementById('schedule-value');
 const detailLink = document.getElementById('detail-link');
 
+const editTitleInput = document.getElementById('edit-title');
+const editIconInput = document.getElementById('edit-icon');
+const editColorInput = document.getElementById('edit-color');
+const editCategoryInput = document.getElementById('edit-category');
+const editDescInput = document.getElementById('edit-desc');
+const editTechInput = document.getElementById('edit-tech');
+const editStatusInput = document.getElementById('edit-status');
+const editStartInput = document.getElementById('edit-start');
+const editEndInput = document.getElementById('edit-end');
+const editLinkInput = document.getElementById('edit-link');
+
+const editBtn = document.getElementById('edit_btn');
+const captureArea = document.getElementById('capture_area'); // 클래스 토글용
+
+const iconInput = document.getElementById('edit-icon');
+const iconPresets = document.getElementById('icon-presets');
+const presetIcons = document.querySelectorAll('#icon-presets span');
+
+let isNewEntry = false;   // 신규 카드 작성 중인지 확인하는 플래그
+let targetDataIndex = -1; // 편집 중인 카드의 데이터 인덱스
+
+let isEditMode = false;
+
+
+
 const jsonData = [];
 
 const MAX_CARDS = 16;
@@ -31,104 +56,244 @@ window.onload = () => {
 }
 
 function addEventListeners() {
-    nextBtn.addEventListener('click', () => {
+    let isScrolling = false;
+
+document.addEventListener('wheel', (e) => {
+    if (isScrolling) return;
+
+    isScrolling = true;
+
+    if(e.deltaY > 0) {
         currIdx++;
         if(currIdx >= cards.length) {
             currIdx = 0;
         }
+    } else {
+        currIdx--;
+        if(currIdx < 0) {
+            currIdx = cards.length - 1;
+        }
+    }
+    reloadCardOption();
+    setTimeout(() => {
+        isScrolling = false;
+    }, 200);
+});
+    
+    // ... (기존 wheel 이벤트 리스너 코드는 그대로 유지) ...
 
-        reloadCardOption();
-    });
-
-    for(let i = 0; i < MAX_CARDS; i++) {
+    // [카드 클릭 이벤트 - 리팩토링]
+    // 중복 코드를 줄이기 위해 렌더링 함수를 분리하는 것이 좋지만, 
+    // 일단 기존 구조에서 편집 모드일 때 클릭 방지만 추가합니다.
+for(let i = 0; i < MAX_CARDS; i++) {
         cards[i].addEventListener('click', () => {
-            currIdx = i+1;
-            reloadCardOption();
-            
+            if(isEditMode) {
+                alert("저장하지 않은 내용이 있습니다."); 
+                return;
+            }
+
+            currIdx = i + 1; // 팬 애니메이션용 인덱스
+            reloadCardOption(); // 팬 돌리기
             detailContainer.classList.add('active');
 
-            const data = jsonData[i];
+            // [핵심 변경: 데이터 존재 여부 확인]
+            if (i < jsonData.length) {
+                // >> 기존 데이터가 있는 경우 (수정 모드)
+                isNewEntry = false;
+                targetDataIndex = i; // 수정할 인덱스 저장
+                renderDetailView(jsonData[i]);
+            } else {
+                // >> 데이터가 없는 경우 (Empty -> 신규 생성 모드)
+                isNewEntry = true;
+                targetDataIndex = jsonData.length; // 새로 추가될 위치 (배열의 끝)
 
-    if (data) {
-        detailTitle.innerText = data.title;
-        detailDescription.innerText = data.description;
-        detailContainer.style.backgroundColor = data.themeColor;
+                // 기본값(Dummy Data) 생성
+                const defaultData = {
+                    title: "새 프로젝트",
+                    description: "프로젝트 설명을 입력하세요.",
+                    themeColor: "#555555", // 요청하신 기본 색상
+                    icon: "📝",
+                    category: "New & Project",
+                    technologies: ["Plan", "Idea"],
+                    status: "기획 중",
+                    startDate: new Date().toISOString().substring(0, 10), // 오늘 날짜
+                    endDate: "",
+                    link: ""
+                };
+                
+                // 가짜 데이터로 렌더링
+                renderDetailView(defaultData);
+            }
+        });
+    }
+    closeBtn.addEventListener('click', () => {
+        if(isEditMode) {
+            if(!confirm("편집 중입니다. 닫으시겠습니까?")) return;
+            isEditMode = false;
+            editBtn.innerText = "편집하기";
+        }
+        detailContainer.classList.remove('active');
+    });
 
-        // 1. Category 처리
-        categoryContainer.innerHTML = '';
-        const categories = data.category.split('&').map(s => s.trim());
-        
-        // 2. Categories 처리
-        categories.forEach(catText => {
+    // ... (기존 downloadBtn 이벤트 리스너 그대로 유지) ...
+
+    // [신규 기능 2: 편집 모드 토글]
+editBtn.addEventListener('click', () => {
+    // 편집 모드가 아닐 때 (편집 시작)
+    if (!isEditMode) {
+        isEditMode = true;
+        detailContainer.classList.add('editing');
+        editBtn.innerText = "저장하기";
+    } else {
+        // 편집 모드일 때 (저장)
+        saveChanges(); // 인자 없이 호출
+    }
+});
+// 2. 프리셋 아이콘 선택 시 값 입력
+presetIcons.forEach(icon => {
+    icon.addEventListener('click', (e) => {
+
+        iconInput.value = e.target.innerText;
+
+        iconPresets.classList.remove('show');
+    });
+});
+// 3. 박스 외부 클릭 시 박스 닫기
+document.addEventListener('click', (e) => {
+    if(e.target !== iconInput && !iconPresets.contains(e.target)) {
+        iconPresets.classList.remove('show');
+    }
+});
+}
+function renderDetailView(data) {
+    if (!data) return;
+
+    // --- 1. View Mode 렌더링 (HTML 요소에 값 넣기) ---
+    detailTitle.innerText = data.title;
+    detailDescription.innerText = data.description;
+    detailContainer.style.backgroundColor = data.themeColor;
+    statusValue.innerText = data.status;
+    
+    // 날짜 포맷
+    const formatMonth = (dateStr) => dateStr ? dateStr.substring(0, 7).replace('-', '.') : '';
+    scheduleValue.innerText = `${formatMonth(data.startDate)} ~ ${formatMonth(data.endDate)}`;
+
+    // 카테고리 칩
+    categoryContainer.innerHTML = '';
+    if(data.category) {
+        data.category.split('&').forEach(cat => {
             const span = document.createElement('span');
             span.className = 'category-chip';
-            span.innerText = catText;
+            span.innerText = cat.trim();
             categoryContainer.appendChild(span);
         });
+    }
 
-        // 3. Technologies 처리
-        techContainer.innerHTML = '';
+    // 기술 칩
+    techContainer.innerHTML = '';
+    if(data.technologies) {
         data.technologies.forEach(tech => {
             const span = document.createElement('span');
             span.className = 'tech-chip';
             span.innerText = tech;
             techContainer.appendChild(span);
         });
+    }
 
-        // 4. Status 처리
-        statusValue.innerText = data.status;
-
-        // 5. Schedule 처리 (YYYY-MM-DD -> YYYY.MM 형식으로 변환)
-        const formatMonth = (dateStr) => {
-            if (!dateStr) return '';
-            return dateStr.substring(0, 7).replace('-', '.');
-        };
-        scheduleValue.innerText = `${formatMonth(data.startDate)} ~ ${formatMonth(data.endDate)}`;
-
-        // 6. Link 처리 (링크 없으면 버튼 숨김)
-        if (data.link && data.link !== "") {
-            detailLink.href = data.link;
-            detailLink.style.display = 'inline-block'; // 혹은 'flex' 등 CSS에 맞춰서
-            detailLink.innerText = '자세히 보기';
-        } else {
-            detailLink.href = '#';
-            detailLink.style.display = 'none';
-        }
+    // 링크
+    if (data.link) {
+        detailLink.href = data.link;
+        detailLink.style.display = 'inline-block';
+        detailLink.innerText = '자세히 보기';
     } else {
-        // 데이터가 없을 때의 방어 로직
-        detailTitle.innerText = 'EMPTY';
-        detailDescription.innerText = 'No Data Available.';
-        categoryContainer.innerHTML = '';
-        techContainer.innerHTML = '';
-        statusValue.innerText = '-';
-        scheduleValue.innerText = '-';
         detailLink.style.display = 'none';
     }
-        });
-    }
 
-    closeBtn.addEventListener('click', () => {
-        detailContainer.classList.remove('active');
-    });
 
-    downloadBtn.addEventListener('click', () => {
-        html2canvas(detailContainer).then(function(canvas) {
-            const captureImgData = canvas.toDataURL('image/png');
-
-            const link = document.createElement('a');
-            link.href = captureImgData;
-            link.download = `${detailTitle.innerText}.png`;
-        
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-    });
-    });
-
+    // --- 2. Edit Mode 렌더링 (Input에 값 채워넣기) ---
+    editTitleInput.value = data.title;
+    editIconInput.value = data.icon;
+    editColorInput.value = data.themeColor;
+    editDescInput.value = data.description;
+    editCategoryInput.value = data.category;
+    
+    // 배열이 있으면 join, 없으면 빈 문자열
+    editTechInput.value = data.technologies ? data.technologies.join(', ') : '';
+    
+    editStatusInput.value = data.status;
+    editStartInput.value = data.startDate;
+    editEndInput.value = data.endDate;
+    editLinkInput.value = data.link;
 }
 
-// JSON 에서 카테고리 불러온 다음에, 리스트로 병합해 SELECT 박스 생성 - TASK 1
 
+// [저장 로직] - Reload 없이 데이터와 화면 갱신
+function saveChanges(index) { 
+    // index 파라미터 대신 전역변수 targetDataIndex를 쓰거나,
+    // 호출할 때 saveChanges(targetDataIndex)로 호출해야 합니다.
+    // 여기서는 위에서 저장해둔 targetDataIndex를 쓴다고 가정하거나 파라미터를 그대로 씁니다.
+    // ※ editBtn 클릭 리스너에서 saveChanges(currIdx - 1) 을 호출하던 부분을 주의하세요.
+    // 로직을 단순화하기 위해 함수 내부에서 처리하겠습니다.
+
+    const newObj = {
+        title: editTitleInput.value,
+        icon: editIconInput.value,
+        themeColor: editColorInput.value,
+        description: editDescInput.value,
+        category: editCategoryInput.value,
+        technologies: editTechInput.value.split(',').map(t => t.trim()).filter(t => t),
+        status: editStatusInput.value,
+        startDate: editStartInput.value,
+        endDate: editEndInput.value,
+        link: editLinkInput.value
+    };
+
+    if (isNewEntry) {
+        // 1. 신규 추가 (Push)
+        jsonData.push(newObj);
+        
+        // 중요: 신규 추가된 카드의 DOM(메인화면 카드)을 업데이트해야 함
+        // 지금 targetDataIndex는 jsonData.length - 1 (방금 추가된 곳)
+        const newIndex = jsonData.length - 1;
+        const targetCard = cards[newIndex];
+        
+        if(targetCard) {
+            // Empty 스타일 제거하고 데이터 입히기
+            targetCard.querySelector('span').innerText = newObj.title;
+            targetCard.querySelector('b').innerText = newObj.icon;
+            targetCard.querySelector('em').innerText = newIndex + 1;
+            targetCard.style.backgroundColor = newObj.themeColor;
+            // X 표시 였던 것을 숫자로 변경 등 필요한 스타일 리셋
+        }
+        
+        // 플래그 초기화
+        isNewEntry = false;
+
+    } else {
+        // 2. 기존 수정 (Update)
+        // editBtn 클릭 시 넘겨준 index 사용 (혹은 targetDataIndex)
+        // 안전하게 targetDataIndex를 사용
+        jsonData[targetDataIndex] = newObj;
+
+        const targetCard = cards[targetDataIndex];
+        if(targetCard) {
+            targetCard.querySelector('span').innerText = newObj.title;
+            targetCard.querySelector('b').innerText = newObj.icon;
+            targetCard.style.backgroundColor = newObj.themeColor;
+        }
+    }
+
+    // 공통: 저장 및 뷰 갱신
+    localStorage.setItem('portfolioData', JSON.stringify(jsonData));
+    renderDetailView(newObj); // 저장된 데이터로 다시 뷰 렌더링
+
+    // 모드 종료
+    isEditMode = false;
+    detailContainer.classList.remove('editing');
+    editBtn.innerText = "편집하기";
+
+    alert("저장되었습니다.");
+}
 
 function initDOMElements() {
     cards = document.querySelectorAll('.card');

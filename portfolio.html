@@ -26,33 +26,52 @@
         <div id="capture_area">
             <button id="close_btn">X</button>
             <button id="download_btn">↓</button>
-            <div id="detail-content">
-                <h2 id="detail-title">Django</h2>
-                <div id="category-container">
-                    <span class="category-chip">웹 개발</span>
-                    <span class="category-chip">백엔드</span>
-                </div>
-                <p id="detail-description">
-                    Django는 파이썬으로 작성된 오픈 소스 웹 프레임워크로, 신속한 개발과 깔끔한 디자인을 촉진합니다. MTV(Model-Template-View) 아키텍처 패턴을 따르며, 강력한 관리 인터페이스, ORM(Object-Relational Mapping), 인증 시스템 등 다양한 기능을 제공합니다. Django는 보안에 중점을 두고 있으며, 크고 복잡한 웹 애플리케이션을 효율적으로 구축할 수 있도록 도와줍니다.
-                </p>
-                <div id="technologies-container">
-                    <span class="tech-chip">Python</span>
-                </div>
-                <div id="status-container">
-                    <span id="status-label">진행 상태:</span>
-                    <span id="status-value">완료</span>
-                </div>
-                <div id="develop-schedule">
-                    <span id="schedule-label">개발 기간:</span>
-                    <span id="schedule-value">2023.01 ~ 2023.03</span>
-                </div>
-                <a id="detail-link" href="#" target="_blank">자세히 보기</a>
-            </div>
+            <button id="edit_btn">편집하기</button>
+
+
+<div id="detail-content">
+    <div class="header-group">
+        <h2 id="detail-title" class="view-field">Django</h2>
+        <input type="text" id="edit-title" class="edit-field" placeholder="제목">
+        
+        <div class="edit-field extra-settings" style="margin-top:5px;">
+            <label>아이콘: <input type="text" id="edit-icon" style="width:40px; text-align:center;"></label>
+            <label>테마색: <input type="color" id="edit-color"></label>
+        </div>
+    </div>
+
+    <div id="category-container" class="view-field">
+        </div>
+    <input type="text" id="edit-category" class="edit-field" placeholder="예: Web & Backend" style="width:100%;">
+
+    <p id="detail-description" class="view-field">설명 텍스트...</p>
+    <textarea id="edit-desc" class="edit-field" style="width:100%; height:100px;"></textarea>
+
+    <div id="technologies-container" class="view-field">
+        </div>
+    <input type="text" id="edit-tech" class="edit-field" placeholder="기술 스택 (쉼표로 구분)" style="width:100%;">
+
+    <div id="status-container">
+        <span id="status-label">진행 상태:</span>
+        <span id="status-value" class="view-field">완료</span>
+        <input type="text" id="edit-status" class="edit-field">
+    </div>
+
+    <div id="develop-schedule">
+        <span id="schedule-label">개발 기간:</span>
+        <span id="schedule-value" class="view-field">2023.01 ~ 2023.03</span>
+        <div class="edit-field">
+            <input type="date" id="edit-start"> ~ <input type="date" id="edit-end">
+        </div>
+    </div>
+
+    <a id="detail-link" href="#" target="_blank" class="view-field">자세히 보기</a>
+    <input type="text" id="edit-link" class="edit-field" placeholder="URL 입력 (https://...)" style="width:100%;">
+</div>
         </div>
     </div>
 
     <div id="fan-container">
-        <button id="next_btn">다음.</button>
 
         <div id="fan-wrapper">
             <div id="init_card" class="card" style="--rotate-deg: 0deg"><span>Django</span><div class="flex jcsb" style="font-size: 24px"><em>01</em><b></b></div></div>
