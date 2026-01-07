@@ -12,6 +12,12 @@ const detailTitle = document.getElementById('detail-title');
 const detailDescription = document.getElementById('detail-description');
 const closeBtn = document.getElementById('close_btn');
 
+const categoryContainer = document.getElementById('category-container');
+const techContainer = document.getElementById('technologies-container');
+const statusValue = document.getElementById('status-value');
+const scheduleValue = document.getElementById('schedule-value');
+const detailLink = document.getElementById('detail-link');
+
 const jsonData = [];
 
 const MAX_CARDS = 16;
@@ -41,10 +47,63 @@ function addEventListeners() {
             
             detailContainer.classList.add('active');
 
-            detailTitle.innerText = jsonData[i] ? jsonData[i].title : 'EMPTY';
-            detailDescription.innerText = jsonData[i] ? jsonData[i].description : 'No Data Available.';
-            detailContainer.style.backgroundColor = jsonData[i] ? jsonData[i].themeColor : '#555';
-            // detailCaptureArea.style.backgroundColor = jsonData[i] ? jsonData[i].themeColor : '#555';
+            const data = jsonData[i];
+
+    if (data) {
+        detailTitle.innerText = data.title;
+        detailDescription.innerText = data.description;
+        detailContainer.style.backgroundColor = data.themeColor;
+
+        // 1. Category 처리
+        categoryContainer.innerHTML = '';
+        const categories = data.category.split('&').map(s => s.trim());
+        
+        // 2. Categories 처리
+        categories.forEach(catText => {
+            const span = document.createElement('span');
+            span.className = 'category-chip';
+            span.innerText = catText;
+            categoryContainer.appendChild(span);
+        });
+
+        // 3. Technologies 처리
+        techContainer.innerHTML = '';
+        data.technologies.forEach(tech => {
+            const span = document.createElement('span');
+            span.className = 'tech-chip';
+            span.innerText = tech;
+            techContainer.appendChild(span);
+        });
+
+        // 4. Status 처리
+        statusValue.innerText = data.status;
+
+        // 5. Schedule 처리 (YYYY-MM-DD -> YYYY.MM 형식으로 변환)
+        const formatMonth = (dateStr) => {
+            if (!dateStr) return '';
+            return dateStr.substring(0, 7).replace('-', '.');
+        };
+        scheduleValue.innerText = `${formatMonth(data.startDate)} ~ ${formatMonth(data.endDate)}`;
+
+        // 6. Link 처리 (링크 없으면 버튼 숨김)
+        if (data.link && data.link !== "") {
+            detailLink.href = data.link;
+            detailLink.style.display = 'inline-block'; // 혹은 'flex' 등 CSS에 맞춰서
+            detailLink.innerText = '자세히 보기';
+        } else {
+            detailLink.href = '#';
+            detailLink.style.display = 'none';
+        }
+    } else {
+        // 데이터가 없을 때의 방어 로직
+        detailTitle.innerText = 'EMPTY';
+        detailDescription.innerText = 'No Data Available.';
+        categoryContainer.innerHTML = '';
+        techContainer.innerHTML = '';
+        statusValue.innerText = '-';
+        scheduleValue.innerText = '-';
+        detailLink.style.display = 'none';
+    }
         });
     }
 
