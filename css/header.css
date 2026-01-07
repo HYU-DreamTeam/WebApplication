@@ -25,41 +25,43 @@ a {
 
 
 header {
-    border-bottom: 1px solid #eee;
+    border-bottom: 2px solid #ececec;
 }
 
 .header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
+  display: flex;
+  align-items: center;
 }
 
 .logo img {
-    height: 40px;
-    width: auto;
+  height: 100px;
 }
 
 nav {
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
+    margin: 0 auto;
+    align-self: flex-end;
+}
+
+nav a {
+  padding: 0.6rem 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border-radius: 6px;
 }
 
 nav a:hover {
     opacity: 0.6;
-}
-
-.auth {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
 }
 
 .btn {
