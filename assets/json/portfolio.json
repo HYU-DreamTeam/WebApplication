@@ -11,7 +11,7 @@
       ],
       "themeColor": "#6c5ce7",
       "link": "",
-      "status": "Live Demo",
+      "status": "Live",
       "icon": "🃏",
       "startDate": "2024-01-10",
       "endDate": "2024-01-24"
@@ -27,7 +27,7 @@
       ],
       "link": "https://example.com/mint-map",
       "themeColor": "#00d2d3",
-      "status": "Service Active",
+      "status": "Live",
       "icon": "🍦",
       "startDate": "2023-06-01",
       "endDate": "2023-08-15"
@@ -43,7 +43,7 @@
       ],
       "link": "https://example.com/data-analysis",
       "themeColor": "#ff7675",
-      "status": "Research Completed",
+      "status": "Archived",
       "icon": "🎡",
       "startDate": "2025-02-01",
       "endDate": "2025-04-30"
@@ -59,7 +59,7 @@
       ],
       "link": "",
       "themeColor": "#636e72",
-      "status": "Prototype",
+      "status": "Concept",
       "icon": "🤖",
       "startDate": "2022-09-01",
       "endDate": "2022-11-20"
@@ -91,7 +91,7 @@
       ],
       "link": "",
       "themeColor": "#0984e3",
-      "status": "MVP Launched",
+      "status": "Live",
       "icon": "🏢",
       "startDate": "2024-03-15",
       "endDate": "2024-09-30"
@@ -106,7 +106,7 @@
       ],
       "link": "",
       "themeColor": "#d63031",
-      "status": "In Development",
+      "status": "In Progress",
       "icon": "💪",
       "startDate": "2025-05-01",
       "endDate": "2025-08-01"
@@ -121,7 +121,7 @@
       ],
       "link": "https://example.com/bandi",
       "themeColor": "#fdcb6e",
-      "status": "Published",
+      "status": "Live",
       "icon": "✒️",
       "startDate": "2023-12-01",
       "endDate": "2023-12-20"
@@ -136,7 +136,7 @@
       ],
       "link": "",
       "themeColor": "#2d3436",
-      "status": "Toy Project",
+      "status": "Concept",
       "icon": "♠️",
       "startDate": "2023-03-10",
       "endDate": "2023-03-15"

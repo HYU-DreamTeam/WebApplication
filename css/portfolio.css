@@ -38,7 +38,6 @@ body {
     padding: 2rem;
     color: #fff;
 }
-
 #detail-container #close_btn {
     position: absolute;
     top: 30px;
@@ -68,6 +67,49 @@ body {
     font-size: 1.2rem;
     text-align: center;
     cursor: pointer;
+}
+#detail-container #category-container{
+    margin: 10px 0;
+
+}
+#detail-container #category-container .category-chip {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+#detail-decsription {
+    margin: 15px 0;
+    line-height: 1.5;
+}
+#detail-container #technologies-container {
+    margin: 10px 0;
+}
+#detail-container #technologies-container .tech-chip {
+    display: inline-block;
+    background-color: #28A745;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+#detail-container #status-container {
+    margin: 10px 0;
+}
+#detail-container #status-container #status-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+#detail-container #develop-schedule {
+    margin: 10px 0;
+}
+#detail-container #develop-schedule #schedule-label {
+    font-weight: bold;
+    margin-right: 10px;
 }
 #fan-container {
     width: 100%;
