@@ -3,7 +3,8 @@ const hBtn = document.getElementById('horizontal-btn');
 const vBtn = document.getElementById('vertical-btn');
 const canvas = document.getElementById('canvas');
 const templateBtn = document.getElementById('template-btn');
-const template = document.getElementById('template');
+const storageBoxBtn = document.getElementById('storage-box-btn');
+const sidePanel = document.getElementById('sidePanel');
 const tool = document.getElementById('tool');
 const canvasTrunBtn = document.getElementById('turn-canvas-btn');
 
@@ -11,9 +12,15 @@ const newCard = document.createElement('div');
 const cardFront = document.createElement('div');
 const cardBack = document.createElement('div');
 
+const contents = {
+    template: document.getElementById('template'),
+    storage: document.getElementById('storage')
+};
+
 let side = '';
 
-let activateTool = false;
+let currentTab = null;
+
 let trunCard = false;
 
 let fullData = null;
@@ -60,15 +67,36 @@ vBtn.onclick = function () {
     createCard(side);
 };
 
-templateBtn.onclick = function () {
+function toggleSidebar(tabName) {
+    if (currentTab === tabName) {
+        currentTab = null;
+    } else {
+        currentTab = tabName;
+    }
 
-    activateTool = !activateTool;
+    const isOpen = currentTab !== null;
+    const currentPanelWidth = isOpen ? 400 : 0;
 
-    const templateWidthSize = activateTool ? 400 : 0;
-    const canvasMarginLeftSize = activateTool ? tool.offsetWidth + templateWidthSize : 0;
+    const canvasMarginLeftSize = tool.offsetWidth + currentPanelWidth;
 
-    template.style.width = templateWidthSize + 'px';
+    sidePanel.style.width = currentPanelWidth + 'px';
     canvas.style.marginLeft = canvasMarginLeftSize + 'px';
+
+    for (const key in contents) {
+        contents[key].style.display = 'none';
+    }
+
+    if (isOpen) {
+        contents[currentTab].style.display = 'inline';
+    }
+}
+
+templateBtn.onclick = function() {
+    toggleSidebar('template');
+};
+
+storageBoxBtn.onclick = function() {
+    toggleSidebar('storage');
 };
 
 canvasTrunBtn.onclick = function () {
@@ -129,13 +157,16 @@ function createCardTemplates(data) {
             templateCard.style.height = "47%";
             templateCard.style.aspectRatio = "54 / 94";
         }
+        
 
-        templateCard.innerHTML = `
-            <div class="card-info">
-                <img src="${currentGroup[typeName]["preview-img"]}" alt="${typeName}">
-            </div>
-        `;
+        const type = currentGroup[typeName];
 
+        const CardList = type.front;
+        for (let t = 0; t < CardList.length; t++) {
+            const element = CardList[t];
+            drawCardElement(element, templateCard, false);
+        }
+    
         templateCard.onclick = function () {
             console.log(`${typeName} 선택됨`);
             cardFront.innerHTML = '';
@@ -166,7 +197,7 @@ function createCardTemplates(data) {
 }
 
 // 캔버스 위에 요소 배치
-function drawCardElement(element, target) {
+function drawCardElement(element, target, id = true) {
 
     const newElement = document.createElement('div');
     newElement.className = 'card-element';
@@ -184,9 +215,19 @@ function drawCardElement(element, target) {
 
     const fontSizeRatio = (element["font-size"] / baseWidth) * 100;
 
+    let idText = "";
+
+    if(id){
+        idText = element["id"];
+        console.log(idText);
+    }
+
+    
+
     newElement.innerHTML = `
         <input type="text" 
                class="card-input"
+               id="${idText}"
                style="width: 100%; font-size: ${fontSizeRatio}cqw;" 
                placeholder="${element["text"]}"
                autocomplete="off">

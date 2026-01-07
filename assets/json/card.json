@@ -3,78 +3,415 @@
     "TypeA (Classic Left)": {
       "preview-img": "./assets/images/h_1.png",
       "front": [
-        { "id": "company", "text": "제미니 주식회사", "x": 60, "y": 60, "width": 500, "font-size": 22 },
-        { "id": "job", "text": "기획팀 / 팀장", "x": 60, "y": 180, "width": 500, "font-size": 18 },
-        { "id": "name", "text": "홍 길 동", "x": 60, "y": 230, "width": 500, "font-size": 40 },
-        { "id": "contact", "text": "010-1234-5678 | hong@gemini.com", "x": 60, "y": 360, "width": 600, "font-size": 16 },
-        { "id": "web", "text": "www.gemini-corp.co.kr", "x": 60, "y": 400, "width": 600, "font-size": 16 },
-        { "id": "addr", "text": "서울시 강남구 테헤란로 123", "x": 60, "y": 440, "width": 600, "font-size": 16 }
+        {
+          "id": "company",
+          "text": "제미니 주식회사",
+          "x": 60,
+          "y": 60,
+          "width": 500,
+          "font-size": 22
+        },
+        {
+          "id": "job",
+          "text": "기획팀 / 팀장",
+          "x": 60,
+          "y": 180,
+          "width": 500,
+          "font-size": 18
+        },
+        {
+          "id": "name",
+          "text": "홍 길 동",
+          "x": 60,
+          "y": 230,
+          "width": 500,
+          "font-size": 40
+        },
+        {
+          "id": "contact",
+          "text": "010-1234-5678 | hong@gemini.com",
+          "x": 60,
+          "y": 360,
+          "width": 600,
+          "font-size": 16
+        },
+        {
+          "id": "web",
+          "text": "www.gemini-corp.co.kr",
+          "x": 60,
+          "y": 400,
+          "width": 600,
+          "font-size": 16
+        },
+        {
+          "id": "addr",
+          "text": "서울시 강남구 테헤란로 123",
+          "x": 60,
+          "y": 440,
+          "width": 600,
+          "font-size": 16
+        }
       ],
       "back": [
-        { "id": "company-en", "text": "GEMINI CORP.", "x": 60, "y": 60, "width": 500, "font-size": 22 },
-        { "id": "job-en", "text": "Planning Team Lead", "x": 60, "y": 180, "width": 500, "font-size": 18 },
-        { "id": "name-en", "text": "GILDONG HONG", "x": 60, "y": 230, "width": 500, "font-size": 40 },
-        { "id": "contact-en", "text": "+82-10-1234-5678 | hong@gemini.com", "x": 60, "y": 360, "width": 600, "font-size": 16 },
-        { "id": "web-en", "text": "www.gemini-corp.co.kr", "x": 60, "y": 400, "width": 600, "font-size": 16 },
-        { "id": "addr-en", "text": "123, Teheran-ro, Gangnam-gu, Seoul", "x": 60, "y": 440, "width": 600, "font-size": 16 }
+        {
+          "id": "company-en",
+          "text": "GEMINI CORP.",
+          "x": 60,
+          "y": 60,
+          "width": 500,
+          "font-size": 22
+        },
+        {
+          "id": "job-en",
+          "text": "Planning Team Lead",
+          "x": 60,
+          "y": 180,
+          "width": 500,
+          "font-size": 18
+        },
+        {
+          "id": "name-en",
+          "text": "GILDONG HONG",
+          "x": 60,
+          "y": 230,
+          "width": 500,
+          "font-size": 40
+        },
+        {
+          "id": "contact-en",
+          "text": "+82-10-1234-5678 | hong@gemini.com",
+          "x": 60,
+          "y": 360,
+          "width": 600,
+          "font-size": 16
+        },
+        {
+          "id": "web-en",
+          "text": "www.gemini-corp.co.kr",
+          "x": 60,
+          "y": 400,
+          "width": 600,
+          "font-size": 16
+        },
+        {
+          "id": "addr-en",
+          "text": "123, Teheran-ro, Gangnam-gu, Seoul",
+          "x": 60,
+          "y": 440,
+          "width": 600,
+          "font-size": 16
+        }
       ]
     },
     "TypeB (Right Align)": {
       "preview-img": "./assets/images/h_2.png",
       "front": [
-        { "id": "company", "text": "디자인 랩", "x": 60, "y": 60, "width": 400, "font-size": 24 },
-        { "id": "name", "text": "김 철 수", "x": 480, "y": 150, "width": 400, "font-size": 40 },
-        { "id": "job", "text": "수석 디자이너", "x": 480, "y": 210, "width": 400, "font-size": 18 },
-        { "id": "contact", "text": "010-9876-5432", "x": 480, "y": 350, "width": 400, "font-size": 16 },
-        { "id": "web", "text": "www.design-lab.io", "x": 480, "y": 390, "width": 400, "font-size": 16 },
-        { "id": "addr", "text": "경기도 성남시 판교역로 1", "x": 480, "y": 430, "width": 400, "font-size": 16 }
+        {
+          "id": "company",
+          "text": "디자인 랩",
+          "x": 60,
+          "y": 60,
+          "width": 400,
+          "font-size": 24
+        },
+        {
+          "id": "name",
+          "text": "김 철 수",
+          "x": 480,
+          "y": 150,
+          "width": 400,
+          "font-size": 40
+        },
+        {
+          "id": "job",
+          "text": "수석 디자이너",
+          "x": 480,
+          "y": 210,
+          "width": 400,
+          "font-size": 18
+        },
+        {
+          "id": "contact",
+          "text": "010-9876-5432",
+          "x": 480,
+          "y": 350,
+          "width": 400,
+          "font-size": 16
+        },
+        {
+          "id": "web",
+          "text": "www.design-lab.io",
+          "x": 480,
+          "y": 390,
+          "width": 400,
+          "font-size": 16
+        },
+        {
+          "id": "addr",
+          "text": "경기도 성남시 판교역로 1",
+          "x": 480,
+          "y": 430,
+          "width": 400,
+          "font-size": 16
+        }
       ],
       "back": [
-        { "id": "company-en", "text": "DESIGN LAB", "x": 60, "y": 60, "width": 400, "font-size": 24 },
-        { "id": "name-en", "text": "CHULSU KIM", "x": 480, "y": 150, "width": 400, "font-size": 40 },
-        { "id": "job-en", "text": "Senior Designer", "x": 480, "y": 210, "width": 400, "font-size": 18 },
-        { "id": "contact-en", "text": "+82-10-9876-5432", "x": 480, "y": 350, "width": 400, "font-size": 16 },
-        { "id": "web-en", "text": "www.design-lab.io", "x": 480, "y": 390, "width": 400, "font-size": 16 },
-        { "id": "addr-en", "text": "1, Pangyoyeok-ro, Seongnam-si", "x": 480, "y": 430, "width": 400, "font-size": 16 }
+        {
+          "id": "company-en",
+          "text": "DESIGN LAB",
+          "x": 60,
+          "y": 60,
+          "width": 400,
+          "font-size": 24
+        },
+        {
+          "id": "name-en",
+          "text": "CHULSU KIM",
+          "x": 480,
+          "y": 150,
+          "width": 400,
+          "font-size": 40
+        },
+        {
+          "id": "job-en",
+          "text": "Senior Designer",
+          "x": 480,
+          "y": 210,
+          "width": 400,
+          "font-size": 18
+        },
+        {
+          "id": "contact-en",
+          "text": "+82-10-9876-5432",
+          "x": 480,
+          "y": 350,
+          "width": 400,
+          "font-size": 16
+        },
+        {
+          "id": "web-en",
+          "text": "www.design-lab.io",
+          "x": 480,
+          "y": 390,
+          "width": 400,
+          "font-size": 16
+        },
+        {
+          "id": "addr-en",
+          "text": "1, Pangyoyeok-ro, Seongnam-si",
+          "x": 480,
+          "y": 430,
+          "width": 400,
+          "font-size": 16
+        }
       ]
     }
-  },"vertical": {
+  },
+  "vertical": {
     "TypeA (Top Left)": {
       "preview-img": "./assets/images/v_1.png",
       "front": [
-        { "id": "company", "text": "스타트업", "x": 40, "y": 80, "width": 460, "font-size": 20 },
-        { "id": "name", "text": "박 민 수", "x": 40, "y": 180, "width": 460, "font-size": 40 },
-        { "id": "job", "text": "개발 팀장", "x": 40, "y": 240, "width": 460, "font-size": 18 },
-        { "id": "contact", "text": "010-5555-6666", "x": 40, "y": 350, "width": 460, "font-size": 16 },
-        { "id": "web", "text": "min@startup.com", "x": 40, "y": 390, "width": 460, "font-size": 16 },
-        { "id": "addr", "text": "서울시 마포구 합정동", "x": 40, "y": 430, "width": 460, "font-size": 16 }
+        {
+          "id": "company",
+          "text": "스타트업",
+          "x": 40,
+          "y": 80,
+          "width": 460,
+          "font-size": 20
+        },
+        {
+          "id": "name",
+          "text": "박 민 수",
+          "x": 40,
+          "y": 180,
+          "width": 460,
+          "font-size": 40
+        },
+        {
+          "id": "job",
+          "text": "개발 팀장",
+          "x": 40,
+          "y": 240,
+          "width": 460,
+          "font-size": 18
+        },
+        {
+          "id": "contact",
+          "text": "010-5555-6666",
+          "x": 40,
+          "y": 350,
+          "width": 460,
+          "font-size": 16
+        },
+        {
+          "id": "web",
+          "text": "min@startup.com",
+          "x": 40,
+          "y": 390,
+          "width": 460,
+          "font-size": 16
+        },
+        {
+          "id": "addr",
+          "text": "서울시 마포구 합정동",
+          "x": 40,
+          "y": 430,
+          "width": 460,
+          "font-size": 16
+        }
       ],
       "back": [
-        { "id": "company-en", "text": "STARTUP INC.", "x": 40, "y": 80, "width": 460, "font-size": 20 },
-        { "id": "name-en", "text": "MINSU PARK", "x": 40, "y": 180, "width": 460, "font-size": 40 },
-        { "id": "job-en", "text": "Lead Developer", "x": 40, "y": 240, "width": 460, "font-size": 18 },
-        { "id": "contact-en", "text": "+82-10-5555-6666", "x": 40, "y": 350, "width": 460, "font-size": 16 },
-        { "id": "web-en", "text": "min@startup.com", "x": 40, "y": 390, "width": 460, "font-size": 16 },
-        { "id": "addr-en", "text": "Hapjeong-dong, Mapo-gu, Seoul", "x": 40, "y": 430, "width": 460, "font-size": 16 }
+        {
+          "id": "company-en",
+          "text": "STARTUP INC.",
+          "x": 40,
+          "y": 80,
+          "width": 460,
+          "font-size": 20
+        },
+        {
+          "id": "name-en",
+          "text": "MINSU PARK",
+          "x": 40,
+          "y": 180,
+          "width": 460,
+          "font-size": 40
+        },
+        {
+          "id": "job-en",
+          "text": "Lead Developer",
+          "x": 40,
+          "y": 240,
+          "width": 460,
+          "font-size": 18
+        },
+        {
+          "id": "contact-en",
+          "text": "+82-10-5555-6666",
+          "x": 40,
+          "y": 350,
+          "width": 460,
+          "font-size": 16
+        },
+        {
+          "id": "web-en",
+          "text": "min@startup.com",
+          "x": 40,
+          "y": 390,
+          "width": 460,
+          "font-size": 16
+        },
+        {
+          "id": "addr-en",
+          "text": "Hapjeong-dong, Mapo-gu, Seoul",
+          "x": 40,
+          "y": 430,
+          "width": 460,
+          "font-size": 16
+        }
       ]
     },
     "TypeB (Bottom Left)": {
       "preview-img": "./assets/images/v_2.png",
       "front": [
-        { "id": "company", "text": "건축 사무소 결", "x": 40, "y": 80, "width": 460, "font-size": 24 },
-        { "id": "name", "text": "최 유 진", "x": 40, "y": 650, "width": 460, "font-size": 40 },
-        { "id": "job", "text": "수석 건축가", "x": 40, "y": 710, "width": 460, "font-size": 18 },
-        { "id": "contact", "text": "010-7777-8888", "x": 40, "y": 780, "width": 460, "font-size": 16 },
-        { "id": "web", "text": "www.gyeol-arch.com", "x": 40, "y": 820, "width": 460, "font-size": 16 },
-        { "id": "addr", "text": "서울시 종로구 북촌로", "x": 40, "y": 860, "width": 460, "font-size": 16 }
+        {
+          "id": "company",
+          "text": "건축 사무소 결",
+          "x": 40,
+          "y": 80,
+          "width": 460,
+          "font-size": 24
+        },
+        {
+          "id": "name",
+          "text": "최 유 진",
+          "x": 40,
+          "y": 650,
+          "width": 460,
+          "font-size": 40
+        },
+        {
+          "id": "job",
+          "text": "수석 건축가",
+          "x": 40,
+          "y": 710,
+          "width": 460,
+          "font-size": 18
+        },
+        {
+          "id": "contact",
+          "text": "010-7777-8888",
+          "x": 40,
+          "y": 780,
+          "width": 460,
+          "font-size": 16
+        },
+        {
+          "id": "web",
+          "text": "www.gyeol-arch.com",
+          "x": 40,
+          "y": 820,
+          "width": 460,
+          "font-size": 16
+        },
+        {
+          "id": "addr",
+          "text": "서울시 종로구 북촌로",
+          "x": 40,
+          "y": 860,
+          "width": 460,
+          "font-size": 16
+        }
       ],
       "back": [
-        { "id": "company-en", "text": "GYEOL ARCHITECTS", "x": 40, "y": 80, "width": 460, "font-size": 24 },
-        { "id": "name-en", "text": "YUJIN CHOI", "x": 40, "y": 650, "width": 460, "font-size": 40 },
-        { "id": "job-en", "text": "Chief Architect", "x": 40, "y": 710, "width": 460, "font-size": 18 },
-        { "id": "contact-en", "text": "+82-10-7777-8888", "x": 40, "y": 780, "width": 460, "font-size": 16 },
-        { "id": "web-en", "text": "www.gyeol-arch.com", "x": 40, "y": 820, "width": 460, "font-size": 16 },
-        { "id": "addr-en", "text": "Bukchon-ro, Jongno-gu, Seoul", "x": 40, "y": 860, "width": 460, "font-size": 16 }
+        {
+          "id": "company-en",
+          "text": "GYEOL ARCHITECTS",
+          "x": 40,
+          "y": 80,
+          "width": 460,
+          "font-size": 24
+        },
+        {
+          "id": "name-en",
+          "text": "YUJIN CHOI",
+          "x": 40,
+          "y": 650,
+          "width": 460,
+          "font-size": 40
+        },
+        {
+          "id": "job-en",
+          "text": "Chief Architect",
+          "x": 40,
+          "y": 710,
+          "width": 460,
+          "font-size": 18
+        },
+        {
+          "id": "contact-en",
+          "text": "+82-10-7777-8888",
+          "x": 40,
+          "y": 780,
+          "width": 460,
+          "font-size": 16
+        },
+        {
+          "id": "web-en",
+          "text": "www.gyeol-arch.com",
+          "x": 40,
+          "y": 820,
+          "width": 460,
+          "font-size": 16
+        },
+        {
+          "id": "addr-en",
+          "text": "Bukchon-ro, Jongno-gu, Seoul",
+          "x": 40,
+          "y": 860,
+          "width": 460,
+          "font-size": 16
+        }
       ]
     }
   }
