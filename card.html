@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/card.css">
 </head>
+
 <body>
     <header>
         <div class="header-inner">
@@ -23,7 +25,7 @@
         </div>
     </header>
 
-    <main class="card-page">        
+    <main class="card-page">
 
         <div id="modal" class="modal-overlay">
             <div class="modal-content">
@@ -36,32 +38,35 @@
             </div>
         </div>
 
-        <div id="tool" class="tool-bar">            
+        <div id="tool" class="tool-bar">
             <button id="template-btn" class="tool-button">템플릿</button>
-            <button id="storage-box-btn" class="tool-button">보관함</button>                        
+            <button id="storage-box-btn" class="tool-button">보관함</button>
         </div>
-        
+
         <div id="sidePanel" class="side-panel">
             <div id="template">템플릿 내용입니다</div>
             <div id="storage">보관함 내용입니다</div>
-        </div>        
-        
+        </div>
+
         <div id="canvas">
             <div class="card-actions">
                 <button id="turn-canvas-btn" class="action-btn turn-button">명함 회전</button>
                 <button id="save-btn" class="action-btn">저장</button>
                 <button id="pdf-btn" class="action-btn pdf-btn">내려받기</button>
-                
+
             </div>
         </div>
-      
+
     </main>
 
     <footer>
-        
+
     </footer>
 
+    <script src="./js/html2canvas.min.js"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script> 
     <script src="./js/card.js"></script>
 
 </body>
+
 </html>
