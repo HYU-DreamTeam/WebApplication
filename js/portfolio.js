@@ -130,12 +130,26 @@ for(let i = 0; i < MAX_CARDS; i++) {
         if(isEditMode) {
             if(!confirm("편집 중입니다. 닫으시겠습니까?")) return;
             isEditMode = false;
+            detailContainer.classList.remove('editing');
             editBtn.innerText = "편집하기";
+            renderDetailView(jsonData[targetDataIndex]); // 변경사항 취소 후 원래 데이터로 복원
         }
         detailContainer.classList.remove('active');
     });
 
     // ... (기존 downloadBtn 이벤트 리스너 그대로 유지) ...
+        downloadBtn.addEventListener('click', () => {
+        html2canvas(detailContainer).then(function(canvas) {
+            const captureImgData = canvas.toDataURL('image/png');
+
+            const link = document.createElement('a');
+            link.href = captureImgData;
+            link.download = `${detailTitle.innerText}.png`;
+        
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+    })});
 
     // [신규 기능 2: 편집 모드 토글]
 editBtn.addEventListener('click', () => {

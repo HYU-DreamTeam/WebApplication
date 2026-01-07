@@ -24,21 +24,29 @@
     </header>
     <div id="detail-container">
         <div id="capture_area">
-            <button id="close_btn">X</button>
-            <button id="download_btn">↓</button>
-            <button id="edit_btn">편집하기</button>
-
+            <button id="close_btn" data-html2canvas-ignore="true">X</button>
+            <button id="download_btn" data-html2canvas-ignore="true">↓</button>
+        
+                <button id="edit_btn" data-html2canvas-ignore="true">편집하기</button>
 
 <div id="detail-content">
-    <div class="header-group">
-        <h2 id="detail-title" class="view-field">Django</h2>
-        <input type="text" id="edit-title" class="edit-field" placeholder="제목">
+<div class="header-group">
+    <h2 id="detail-title" class="view-field">Django</h2>
+    <input type="text" id="edit-title" class="edit-field" placeholder="제목">
+    
+    <div class="edit-field extra-settings">
         
-        <div class="edit-field extra-settings" style="margin-top:5px;">
-            <label>아이콘: <input type="text" id="edit-icon" style="width:40px; text-align:center;"></label>
-            <label>테마색: <input type="color" id="edit-color"></label>
+        <div class="icon-picker-wrapper" style="position:relative;">
+            <label>아이콘:</label>
+            <input type="text" id="edit-icon" style="width:40px; text-align:center; cursor:pointer;" autocomplete="off">
+            
+            <div id="icon-presets" class="preset-box">
+                <span>🐍</span> <span>☕</span> <span>⚛️</span> <span>🐘</span> <span>🐬</span> <span>🧊</span> <span>🔥</span> <span>📱</span> <span>💻</span> <span>💾</span> <span>☁️</span> <span>⚙️</span> <span>🎨</span> <span>📜</span> <span>🚀</span> <span>✨</span> </div>
         </div>
+
+        <label>테마색: <input type="color" id="edit-color"></label>
     </div>
+</div>
 
     <div id="category-container" class="view-field">
         </div>
