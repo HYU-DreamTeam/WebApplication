@@ -70,6 +70,7 @@
 
 #canvas {    
     display: flex;            
+    flex-direction: column;
     overflow-y: scroll;
     justify-content: center;
     align-items: center;   
@@ -93,6 +94,7 @@
     align-items: center;        
     max-height: 100%;
     perspective: 2000px;
+    margin: 10px;
 }
 
 #canvas .card div {
@@ -101,6 +103,29 @@
     left: 0;
     transition: 0.5s;
     backface-visibility: hidden;
+}
+
+/* 액션 버튼 */
+.resume-actions {
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.action-btn.turn-button {
+    background: #000;
+    color: #fff;
+    border: none;
 }
 
 .card-horizontal {    
