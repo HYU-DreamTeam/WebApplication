@@ -44,11 +44,81 @@ const placeholders = {
     grade: '성적/비고'
 };
 
+// 페이지 로드 시 로컬스토리지에서 데이터 불러오기
+window.onload = () => {
+    loadFromLocalStorage();
+};
+
+// 로컬스토리지에서 데이터 불러오기
+function loadFromLocalStorage() {
+    const savedData = localStorage.getItem('resumeData');
+    if (savedData) {
+        const data = JSON.parse(savedData);
+
+        // 프로필 정보 복원
+        if (data.profile) {
+            nameInput.value = data.profile.name || '';
+            nameDisplay.textContent = data.profile.name || '';
+            emailInput.value = data.profile.email || '';
+            emailDisplay.textContent = data.profile.email || '';
+            phoneInput.value = data.profile.phone || '';
+            phoneDisplay.textContent = data.profile.phone || '';
+            if (data.profile.image) {
+                profileImage.style.backgroundImage = `url(${data.profile.image})`;
+            }
+        }
+
+        // 각 섹션 데이터 복원
+        Object.keys(data.sections || {}).forEach(section => {
+            const container = document.getElementById(section);
+            if (container && data.sections[section]) {
+                data.sections[section].forEach(itemData => {
+                    addItemWithData(section, container, itemData);
+                });
+            }
+        });
+    }
+}
+
+// 로컬스토리지에 데이터 저장
+function saveToLocalStorage() {
+    const data = {
+        profile: {
+            name: nameInput.value,
+            email: emailInput.value,
+            phone: phoneInput.value,
+            image: profileImage.style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, '')
+        },
+        sections: {}
+    };
+
+    // 각 섹션 데이터 수집
+    Object.keys(fields).forEach(section => {
+        const container = document.getElementById(section);
+        if (container) {
+            data.sections[section] = [];
+            container.querySelectorAll('.item, .skill-item').forEach(item => {
+                const inputs = item.querySelectorAll('input, textarea');
+                const itemData = [];
+                inputs.forEach(input => {
+                    itemData.push(input.value);
+                });
+                if (itemData.some(v => v.trim())) {
+                    data.sections[section].push(itemData);
+                }
+            });
+        }
+    });
+
+    localStorage.setItem('resumeData', JSON.stringify(data));
+}
+
 // 편집/저장 버튼 클릭
 editBtn.addEventListener('click', () => {
     if (isEditing) {
         // 저장 모드로 전환
         saveData();
+        saveToLocalStorage();
         resumeContainer.classList.remove('editing');
         editBtn.textContent = '편집';
     } else {
@@ -59,45 +129,37 @@ editBtn.addEventListener('click', () => {
     isEditing = !isEditing;
 });
 
-//박재형 코드 참조
-// PNG 다운로드 버튼 (A4 사이즈: 2480 x 3508 픽셀 @ 300dpi)
+// PDF 다운로드 버튼 (A4 사이즈)
 pdfBtn.addEventListener('click', () => {
-    const A4_WIDTH = 2480;
-    const A4_HEIGHT = 3508;
-
     html2canvas(resumeContainer, {
-        scale: 3,
+        scale: 2,
         useCORS: true,
         backgroundColor: '#ffffff'
     }).then(function(canvas) {
-        // A4 비율에 맞는 새 캔버스 생성
-        const a4Canvas = document.createElement('canvas');
-        a4Canvas.width = A4_WIDTH;
-        a4Canvas.height = A4_HEIGHT;
-        const ctx = a4Canvas.getContext('2d');
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF('p', 'mm', 'a4');
 
-        // 흰색 배경
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, A4_WIDTH, A4_HEIGHT);
+        const imgData = canvas.toDataURL('image/png');
+        const imgWidth = 210;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-        // 원본 이미지를 A4 캔버스에 맞게 그리기
-        const scale = Math.min(A4_WIDTH / canvas.width, A4_HEIGHT / canvas.height);
-        const x = (A4_WIDTH - canvas.width * scale) / 2;
-        const y = 0;
-        ctx.drawImage(canvas, x, y, canvas.width * scale, canvas.height * scale);
+        const pageHeight = 297;
+        let heightLeft = imgHeight;
+        let position = 0;
 
-        const captureImgData = a4Canvas.toDataURL('image/png');
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
 
-        const link = document.createElement('a');
-        link.href = captureImgData;
-        link.download = `${nameDisplay.textContent || 'resume'}.png`;
+        while (heightLeft > 0) {
+            position = heightLeft - imgHeight;
+            pdf.addPage();
+            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+        }
 
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        pdf.save(`${nameDisplay.textContent || 'resume'}.pdf`);
     });
 });
-//박재형 코드 참조
 
 // 프로필 이미지 업로드
 profileInput.addEventListener('change', (e) => {
@@ -199,4 +261,36 @@ function addItem(section, container) {
     if (firstInput) {
         firstInput.focus();
     }
+}
+
+// 데이터와 함께 아이템 추가 (로컬스토리지에서 복원용)
+function addItemWithData(section, container, itemData) {
+    const item = document.createElement('div');
+    item.className = section === 'skills' ? 'skill-item' : 'item';
+
+    let html = `<button class="remove-btn" onclick="this.parentElement.remove()">삭제</button>`;
+
+    if (section === 'intro') {
+        html += `<textarea placeholder="${placeholders.intro}">${itemData[0] || ''}</textarea>`;
+    } else if (section === 'skills') {
+        html += `<input type="text" placeholder="${placeholders.skill}" value="${itemData[0] || ''}">`;
+    } else {
+        fields[section].forEach((field, index) => {
+            const value = itemData[index] || '';
+            if (field === 'description') {
+                html += `<textarea placeholder="${placeholders[field]}">${value}</textarea>`;
+            } else {
+                html += `<input type="text" placeholder="${placeholders[field]}" value="${value}">`;
+            }
+        });
+    }
+
+    // 보기용 컨테이너 추가
+    html += `<div class="view-container view-text"></div>`;
+
+    item.innerHTML = html;
+    container.appendChild(item);
+
+    // view-text 업데이트
+    updateViewText(item);
 }
