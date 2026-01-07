@@ -106,6 +106,7 @@ function buildPortFolioCards() {
 
             newCard.querySelector('span').innerText = item.title;
             newCard.querySelector('em').innerText = index+1;
+            newCard.querySelector('b').innerText = item.icon;
             newCard.style.backgroundColor = item.themeColor;
         }
 
@@ -130,24 +131,37 @@ function getCircularRange(currIdx) {
 }
 
 async function callJsonData() {
-    const request = new XMLHttpRequest();
-    request.open('GET', './assets/json/portfolio.json', true);
-    request.responseText = 'json';
+    if(localStorage.getItem('portfolioData')) {
+        const storeData = JSON.parse(localStorage.getItem('portfolioData')); 
+        storeData.forEach((item) => {
+            jsonData.push(item);
+        });
+        buildPortFolioCards();
+        initDOMElements();
+        addEventListeners();
+        reloadCardOption();
+    } else {
+        const request = new XMLHttpRequest();
+        request.open('GET', './assets/json/portfolio.json', true);
+        request.responseText = 'json';
 
-    request.onload = function() {
-        if(request.status >= 200 && request.status < 400) {
-            const data = JSON.parse(this.response);
-            data.data.forEach((item) => {
-                jsonData.push(item);
-            });
-            buildPortFolioCards();
-            initDOMElements();
-            addEventListeners();
-            reloadCardOption();
-        } else {
-            alert("Error!");
+        request.onload = function() {
+            if(request.status >= 200 && request.status < 400) {
+                const data = JSON.parse(this.response);
+                data.data.forEach((item) => {
+                    jsonData.push(item);
+                });
+                localStorage.setItem('portfolioData', JSON.stringify(jsonData));
+                buildPortFolioCards();
+                initDOMElements();
+                addEventListeners();
+                reloadCardOption();
+            } else {
+                alert("Error!");
+            }
         }
-    }
 
-request.send();
+        request.send();
+
+    }
 }

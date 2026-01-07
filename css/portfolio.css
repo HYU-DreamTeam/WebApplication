@@ -2,6 +2,12 @@
 body {
     overflow: hidden;
 }
+.flex {
+    display: flex;
+}
+.jcsb {
+    justify-content: space-between;
+}
 #detail-container {
     width: 100%;
     height: 100vh;

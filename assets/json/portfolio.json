@@ -4,82 +4,142 @@
       "category": "Creative & Interactive",
       "title": "MCA YOLO Portfolio",
       "description": "A web application showcasing a portfolio with interactive card fan effect using CSS variables.",
-      "technologies": ["HTML", "CSS", "JavaScript"],
-      "image": "assets/images/project_portfolio.png",
-      "link": "https://example.com/portfolio",
-      "themeColor": "#6c5ce7"
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "themeColor": "#6c5ce7",
+      "link": "",
+      "status": "Live Demo",
+      "icon": "🃏",
+      "startDate": "2024-01-10",
+      "endDate": "2024-01-24"
     },
     {
       "category": "Web & Mobile Service",
       "title": "Mint Choco Map",
       "description": "A crowdsourced map service locating mint chocolate desserts nationwide.",
-      "technologies": ["React", "KakaoMap API", "Node.js"],
-      "image": "assets/images/project_mintmap.png",
+      "technologies": [
+        "React",
+        "KakaoMap API",
+        "Node.js"
+      ],
       "link": "https://example.com/mint-map",
-      "themeColor": "#00d2d3"
+      "themeColor": "#00d2d3",
+      "status": "Service Active",
+      "icon": "🍦",
+      "startDate": "2023-06-01",
+      "endDate": "2023-08-15"
     },
     {
       "category": "Data & AI Research",
       "title": "Festival Insight",
       "description": "Data analysis dashboard visualizing success factors of local festivals from 2017-2025.",
-      "technologies": ["Python", "Pandas", "Matplotlib"],
-      "image": "assets/images/project_festival.png",
+      "technologies": [
+        "Python",
+        "Pandas",
+        "Matplotlib"
+      ],
       "link": "https://example.com/data-analysis",
-      "themeColor": "#ff7675"
+      "themeColor": "#ff7675",
+      "status": "Research Completed",
+      "icon": "🎡",
+      "startDate": "2025-02-01",
+      "endDate": "2025-04-30"
     },
     {
       "category": "Embedded & Robotics",
       "title": "EV3 Line Tracer",
       "description": "Autonomous robot navigation algorithm using PID control and color sensors.",
-      "technologies": ["RobotC", "LEGO Mindstorms", "C++"],
-      "image": "assets/images/project_robot.png",
+      "technologies": [
+        "RobotC",
+        "LEGO Mindstorms",
+        "C++"
+      ],
       "link": "",
-      "themeColor": "#636e72"
+      "themeColor": "#636e72",
+      "status": "Prototype",
+      "icon": "🤖",
+      "startDate": "2022-09-01",
+      "endDate": "2022-11-20"
     },
     {
       "category": "Data & AI Research",
       "title": "Deep Stock RNN",
       "description": "Time-series forecasting model predicting stock trends using LSTM neural networks.",
-      "technologies": ["PyTorch", "Python", "Flask"],
-      "image": "assets/images/project_ai.png",
+      "technologies": [
+        "PyTorch",
+        "Python",
+        "Flask"
+      ],
       "link": "https://github.com/example/rnn",
-      "themeColor": "#00b894"
+      "themeColor": "#00b894",
+      "status": "Archived",
+      "icon": "📈",
+      "startDate": "2023-11-01",
+      "endDate": "2024-02-28"
     },
     {
       "category": "Web & Mobile Service",
       "title": "SaaS ERP System",
       "description": "B2B web solution for managing corporate accounting and tax invoices.",
-      "technologies": ["Vue.js", "Spring Boot", "MySQL"],
-      "image": "assets/images/project_erp.png",
+      "technologies": [
+        "Vue.js",
+        "Spring Boot",
+        "MySQL"
+      ],
       "link": "",
-      "themeColor": "#0984e3"
+      "themeColor": "#0984e3",
+      "status": "MVP Launched",
+      "icon": "🏢",
+      "startDate": "2024-03-15",
+      "endDate": "2024-09-30"
     },
     {
       "category": "Web & Mobile Service",
       "title": "My Workout Routine",
       "description": "A fitness tracker app to log squat, lunge, and dumbbell exercises.",
-      "technologies": ["React Native", "Firebase"],
-      "image": "assets/images/project_fitness.png",
+      "technologies": [
+        "React Native",
+        "Firebase"
+      ],
       "link": "",
-      "themeColor": "#d63031"
+      "themeColor": "#d63031",
+      "status": "In Development",
+      "icon": "💪",
+      "startDate": "2025-05-01",
+      "endDate": "2025-08-01"
     },
     {
       "category": "Creative & Interactive",
       "title": "Poem: Bandi",
       "description": "Interactive kinetic typography web art based on the original poem 'Bandi'.",
-      "technologies": ["HTML5 Canvas", "GSAP"],
-      "image": "assets/images/project_poem.png",
+      "technologies": [
+        "HTML5 Canvas",
+        "GSAP"
+      ],
       "link": "https://example.com/bandi",
-      "themeColor": "#fdcb6e"
+      "themeColor": "#fdcb6e",
+      "status": "Published",
+      "icon": "✒️",
+      "startDate": "2023-12-01",
+      "endDate": "2023-12-20"
     },
     {
       "category": "Data & AI Research",
       "title": "Poker Odds Calc",
       "description": "Real-time Texas Hold'em win probability calculator based on chip count.",
-      "technologies": ["JavaScript", "Math.js"],
-      "image": "assets/images/project_poker.png",
+      "technologies": [
+        "JavaScript",
+        "Math.js"
+      ],
       "link": "",
-      "themeColor": "#2d3436"
+      "themeColor": "#2d3436",
+      "status": "Toy Project",
+      "icon": "♠️",
+      "startDate": "2023-03-10",
+      "endDate": "2023-03-15"
     }
   ]
 }
