@@ -177,7 +177,7 @@
     border: 1px solid #f1f2f4;
 }
 
-.template-bar {
+.side-panel {
     position: absolute;
     margin-left: 70px;
     width: 0px;
@@ -187,23 +187,27 @@
     overflow-y: scroll;
 }
 
-.card-template{    
-    display: flex;   
-    width: 0px;    
-    height: 0px;
-    aspect-ratio: 0 / 0;     
+.card-template{     
     margin:  20px auto;        
     border: 1px solid black;
     background-color: #fff;
+
+    width: 100%;
+    height: 100%;
+    background-color: white; 
+    z-index: 1;
+    position: relative;
+    container-type: inline-size;
+}
+
+.card-template .card-element input{
+    pointer-events: none;
 }
 
 .card-template:hover{    
     cursor: pointer;
 }
 
-.card-template img {
-    width: 100%;
-}
 
 .card-element{
     position: absolute;
@@ -211,7 +215,7 @@
     align-items: center;
 }
 
-.card-element input{
+.card-input{
     width: 100%;  
     height: 100%; 
     border: 0;
