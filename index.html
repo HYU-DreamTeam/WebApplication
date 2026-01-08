@@ -1,46 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WAD</title>
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/header.css">
-</head>
-<body>
-  <header>
-    <div class="header-inner">
-      <a href="./" class="logo"><img src="./assets/images/logo.png" alt=""></a>
-      <nav>
-        <a href="./resume.html">이력서</a>
-        <a href="./portfolio.html">포트폴리오</a>
-        <a href="./card.html">명함</a>
-      </nav>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WAD</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+  </head>
 
-  <main>
-    <section class="hero">
-      <div class="hero-badge">
-        <span class="badge">#이력서</span>
-        <span class="badge">#포트폴리오</span>
-        <span class="badge">#명함</span>
-        <span class="badge">#Work</span>
-        <span class="badge">#Assemble</span>
-        <span class="badge">#Design</span>
+  <body>
+    <header>
+      <div class="header-inner">
+        <nav class="navbar">
+          <div class="navbar_logo">
+            <a href="./">
+              <img src="./assets/images/logo.png" alt="로고" />
+            </a>
+          </div>
+
+          <ul class="navbar_menu">
+            <li><a href="./resume.html">이력서</a></li>
+            <li><a href="./portfolio.html">포트폴리오</a></li>
+            <li><a href="./card.html">명함</a></li>
+          </ul>
+        </nav>
       </div>
-      <h1>Interactive Portfolio Web Application</h1>
-      <p id="heroText">간단한 입력으로<br><strong>이력서 작성 → 포트폴리오 탐색 → 디지털 명함 공유</strong>까지<br>하나로 만나보세요</p>
-      <div class="hero-links">
-        <a href="./" class="btn">시작하기</a>
-      </div>
-    </section>
-  </main>
+    </header>
 
-  <footer>
-    <p>&copy; 2025 WAD. All rights reserved.</p>
-  </footer>
+    <main>
+      <section class="hero">
+        <div class="hero-badge">
+          <span class="badge">#이력서</span>
+          <span class="badge">#포트폴리오</span>
+          <span class="badge">#명함</span>
+          <span class="badge">#Work</span>
+          <span class="badge">#Assemble</span>
+          <span class="badge">#Design</span>
+        </div>
 
-  <script src="./js/index.js"></script>
-</body>
+        <h1>Interactive Portfolio Web Application</h1>
+
+        <p id="heroText">
+          간단한 입력으로<br />
+          <strong>이력서 작성 → 포트폴리오 탐색 → 디지털 명함 공유</strong>까지<br />
+          하나로 만나보세요
+        </p>
+
+        <div class="feature-grid">
+          <a href="./resume.html" class="feature">
+            <img src="./assets/images/resume.png" alt="이력서" />
+            <h3>이력서</h3>
+            <p>입력 폼 기반으로 자동 정리</p>
+          </a>
+
+          <a href="./portfolio.html" class="feature">
+            <img src="./assets/images/portfolio.png" alt="포트폴리오" />
+            <h3>포트폴리오</h3>
+            <p>프로젝트를 카드로 한눈에</p>
+          </a>
+
+          <a href="./card.html" class="feature">
+            <img src="./assets/images/card.png" alt="명함" />
+            <h3>명함</h3>
+            <p>QR로 간편하게 공유</p>
+          </a>
+        </div>
+
+        <div class="hero-links">
+          <a href="./" class="btn">시작하기</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 WAD. All rights reserved.</p>
+    </footer>
+
+    <script src="./js/index.js"></script>
+  </body>
 </html>
