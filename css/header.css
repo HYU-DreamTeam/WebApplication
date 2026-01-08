@@ -50,7 +50,8 @@ header {
   margin: auto; 
   gap: 3rem;      
   font-size: 1.2rem;
-  font-weight: 900;
+  font-weight: 800;
+  flex-wrap: wrap;
 }
 
 .navbar_menu a {
