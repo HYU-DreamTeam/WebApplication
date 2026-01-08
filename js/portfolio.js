@@ -243,11 +243,6 @@ function renderDetailView(data) {
 
 // [저장 로직] - Reload 없이 데이터와 화면 갱신
 function saveChanges(index) { 
-    // index 파라미터 대신 전역변수 targetDataIndex를 쓰거나,
-    // 호출할 때 saveChanges(targetDataIndex)로 호출해야 합니다.
-    // 여기서는 위에서 저장해둔 targetDataIndex를 쓴다고 가정하거나 파라미터를 그대로 씁니다.
-    // ※ editBtn 클릭 리스너에서 saveChanges(currIdx - 1) 을 호출하던 부분을 주의하세요.
-    // 로직을 단순화하기 위해 함수 내부에서 처리하겠습니다.
 
     const newObj = {
         title: editTitleInput.value,
