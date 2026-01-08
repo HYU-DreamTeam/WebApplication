@@ -56,20 +56,8 @@ header {
 
 .navbar_menu a {
   color: #111;
-  transition: opacity 0.3s;
 }
 
 .navbar_menu a:hover {
   opacity: 0.6;
-}
-
-.btn {
-    background: #111;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-}
-
-.btn:hover {
-    opacity: 0.8;
 }
