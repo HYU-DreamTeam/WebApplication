@@ -16,9 +16,13 @@ a {
 @font-face {
     font-family: 'Pretendard';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
-    font-weight: 100;
+    font-weight: 400;
     font-display: swap;
 }
+
+
+
+
 
 header {
   border-bottom: 2px solid #ececec;
@@ -27,31 +31,31 @@ header {
 .header-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0.5rem 0.5rem;
+  padding: 0 25px;
+}
+.navbar {
   display: flex;
   align-items: center;
-  height: 140px;
+  height: 80px;
 }
 
 .navbar_logo img {
-  height: 120px;
+  height: 60px;
 }
 
 /* Menu */
 .navbar_menu {
   display: flex;
   list-style: none;
-  margin: 20px auto 0; 
+  margin: auto; 
   gap: 3rem;      
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: 900;
 }
 
 .navbar_menu a {
-  padding: 0.5rem 0.75rem;
-}
-.logo img {
-  height: 50px;
+  color: #111;
+  transition: opacity 0.3s;
 }
 
 .navbar_menu a:hover {
