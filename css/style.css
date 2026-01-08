@@ -1,3 +1,32 @@
+/* ===== Font ===== */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2')
+       format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2')
+       format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2')
+       format('woff2');
+  font-weight: 800;
+  font-display: swap;
+}
+
+* {
+  font-family: 'Pretendard', sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -69,7 +98,7 @@ main {
 
 .hero h1 {
   font-size: 5rem;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.15;
   margin-bottom: 1.8rem;
 
