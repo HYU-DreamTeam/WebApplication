@@ -639,15 +639,7 @@ async function downloadCard() {
                     input.parentNode.insertBefore(div, input);
                     input.style.display = 'none'; // 원본은 숨김
                 }
-
-                const cardTemplates = clonedDoc.querySelectorAll('.card-template');
-
-                for (let i = 0; i < cardTemplates.length; i++) {
-                    const card = cardTemplates[i];
-                    
-                    // 반전 효과 제거
-                    card.style.transform = 'none'; 
-                }
+                
             }
         }
     };
