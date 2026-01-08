@@ -16,73 +16,74 @@
                 <a href="./portfolio.html">포트폴리오</a>
                 <a href="./card.html">명함</a>
             </nav>
-            <div class="auth">
-                <a href="#">로그인</a>
-                <a href="#" class="btn">회원가입</a>
-            </div>
         </div>
     </header>
+
     <div id="detail-container">
         <div id="capture_area">
             <button id="close_btn" data-html2canvas-ignore="true">X</button>
             <button id="download_btn" data-html2canvas-ignore="true">↓</button>
-        
-                <button id="edit_btn" data-html2canvas-ignore="true">편집하기</button>
+            <button id="edit_btn" data-html2canvas-ignore="true">편집하기</button>
+            <button id="hide_ui_btn" data-html2canvas-ignore="true" style="display:none;">UI 숨기기</button> <div id="detail-content">
+                <div class="header-group">
+                    <h2 id="detail-title" class="view-field">Django</h2>
+                    <input type="text" id="edit-title" class="edit-field" placeholder="제목">
+                    
+                    <div class="edit-field extra-settings">
+                        
+                        <div class="icon-picker-wrapper">
+                            <label>아이콘: <input type="text" id="edit-icon" autocomplete="off"></label>
+                            
+                            
+                            <div id="icon-presets" class="preset-box">
+                                <span>🐍</span> <span>☕</span> <span>⚛️</span> <span>🐘</span> 
+                                <span>🐬</span> <span>🧊</span> <span>🔥</span> <span>📱</span> 
+                                <span>💻</span> <span>💾</span> <span>☁️</span> <span>⚙️</span> 
+                                <span>🎨</span> <span>📜</span> <span>🚀</span> <span>✨</span> 
+                            </div>
+                        </div>
 
-<div id="detail-content">
-<div class="header-group">
-    <h2 id="detail-title" class="view-field">Django</h2>
-    <input type="text" id="edit-title" class="edit-field" placeholder="제목">
-    
-    <div class="edit-field extra-settings">
-        
-        <div class="icon-picker-wrapper" style="position:relative;">
-            <label>아이콘:</label>
-            <input type="text" id="edit-icon" style="width:40px; text-align:center; cursor:pointer;" autocomplete="off">
-            
-            <div id="icon-presets" class="preset-box">
-                <span>🐍</span> <span>☕</span> <span>⚛️</span> <span>🐘</span> <span>🐬</span> <span>🧊</span> <span>🔥</span> <span>📱</span> <span>💻</span> <span>💾</span> <span>☁️</span> <span>⚙️</span> <span>🎨</span> <span>📜</span> <span>🚀</span> <span>✨</span> </div>
-        </div>
+                        <label>테마색: <input type="color" id="edit-color"></label>
+                    </div>
+                </div>
 
-        <label>테마색: <input type="color" id="edit-color"></label>
-    </div>
-</div>
+                <div id="category-container" class="view-field"></div>
+                <input type="text" id="edit-category" class="edit-field" placeholder="예: Web & Backend">
 
-    <div id="category-container" class="view-field">
-        </div>
-    <input type="text" id="edit-category" class="edit-field" placeholder="예: Web & Backend" style="width:100%;">
+                <p id="detail-description" class="view-field">설명 텍스트...</p>
+                <textarea id="edit-desc" class="edit-field"></textarea>
 
-    <p id="detail-description" class="view-field">설명 텍스트...</p>
-    <textarea id="edit-desc" class="edit-field" style="width:100%; height:100px;"></textarea>
+                <div id="technologies-container" class="view-field"></div>
+                <input type="text" id="edit-tech" class="edit-field" placeholder="기술 스택 (쉼표로 구분)">
 
-    <div id="technologies-container" class="view-field">
-        </div>
-    <input type="text" id="edit-tech" class="edit-field" placeholder="기술 스택 (쉼표로 구분)" style="width:100%;">
+                <div id="status-container">
+                    <span id="status-label">진행 상태:</span>
+                    <span id="status-value" class="view-field">완료</span>
+                    <input type="text" id="edit-status" class="edit-field">
+                </div>
 
-    <div id="status-container">
-        <span id="status-label">진행 상태:</span>
-        <span id="status-value" class="view-field">완료</span>
-        <input type="text" id="edit-status" class="edit-field">
-    </div>
+                <div id="develop-schedule">
+                    <span id="schedule-label">개발 기간:</span>
+                    <span id="schedule-value" class="view-field">2023.01 ~ 2023.03</span>
+                    <div class="edit-field">
+                        <input type="date" id="edit-start"> ~ <input type="date" id="edit-end">
+                    </div>
+                </div>
 
-    <div id="develop-schedule">
-        <span id="schedule-label">개발 기간:</span>
-        <span id="schedule-value" class="view-field">2023.01 ~ 2023.03</span>
-        <div class="edit-field">
-            <input type="date" id="edit-start"> ~ <input type="date" id="edit-end">
-        </div>
-    </div>
-
-    <a id="detail-link" href="#" target="_blank" class="view-field">자세히 보기</a>
-    <input type="text" id="edit-link" class="edit-field" placeholder="URL 입력 (https://...)" style="width:100%;">
-</div>
+                <a id="detail-link" href="#" target="_blank" class="view-field">자세히 보기</a>
+                <input type="text" id="edit-link" class="edit-field" placeholder="URL 입력 (https://...)">
+            </div>
         </div>
     </div>
 
     <div id="fan-container">
-
         <div id="fan-wrapper">
-            <div id="init_card" class="card" style="--rotate-deg: 0deg"><span>Django</span><div class="flex jcsb" style="font-size: 24px"><em>01</em><b></b></div></div>
+            <div id="init_card" class="card">
+                <span>Django</span>
+                <div class="card-footer flex jcsb">
+                    <em>01</em><b></b>
+                </div>
+            </div>
         </div>
     </div>
 </body>

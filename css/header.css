@@ -20,10 +20,6 @@ a {
     font-display: swap;
 }
 
-
-
-
-
 header {
   border-bottom: 2px solid #ececec;
 }
@@ -31,9 +27,7 @@ header {
 .header-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 25px;
-}
-.navbar {
+  padding: 0.5rem 0.5rem;
   display: flex;
   align-items: center;
   height: 140px;
@@ -55,6 +49,9 @@ header {
 
 .navbar_menu a {
   padding: 0.5rem 0.75rem;
+}
+.logo img {
+  height: 50px;
 }
 
 .navbar_menu a:hover {

@@ -50,9 +50,7 @@ const MAX_CARDS = 16;
 let currIdx = 4;
 
 window.onload = () => {
-    
     callJsonData();
-
 }
 
 function addEventListeners() {
