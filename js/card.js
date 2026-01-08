@@ -576,8 +576,11 @@ async function downloadCard() {
             for (let i = 0; i < allInputs.length; i++) {
                 const input = allInputs[i];
                 
-                // 입력 값 없으면 넘기기
-                if (!input.value) continue;
+                // 값이 비어있으면 안 보이게 숨김 처리
+                if (!input.value.trim()) {
+                    input.style.visibility = 'hidden'; 
+                    continue; 
+                }
 
                 // input을 대체할 div 태그 생성
                 const div = clonedDoc.createElement('div');
@@ -586,6 +589,7 @@ async function downloadCard() {
                 // input의 스타일을 그대로 가져오기
                 const style = window.getComputedStyle(input);
 
+                // 폰트 및 텍스트 스타일 복사
                 div.style.fontSize = style.fontSize;
                 div.style.fontFamily = style.fontFamily;
                 div.style.fontWeight = style.fontWeight;
@@ -593,36 +597,46 @@ async function downloadCard() {
                 div.style.letterSpacing = style.letterSpacing;
                 div.style.textAlign = style.textAlign;
 
-                // 위치와 크기 맞추기
-                // div는 기본적으로 위쪽에 붙으므로, 수직 중앙 정렬을 위해 Flexbox 사용
-                div.style.width = '100%';
-                div.style.height = '100%';
-                div.style.display = 'flex';
-                div.style.alignItems = 'center'; // 수직 중앙 정렬
+                // 위치 및 크기 스타일 복사
+                div.style.width = style.width;
+                div.style.height = style.height;
+                div.style.marginTop = style.marginTop;
+                div.style.marginBottom = style.marginBottom;
+                div.style.marginLeft = style.marginLeft;
+                div.style.marginRight = style.marginRight;
+                div.style.paddingTop = style.paddingTop;
+                div.style.paddingBottom = style.paddingBottom;
+                div.style.paddingLeft = style.paddingLeft;
+                div.style.paddingRight = style.paddingRight;
+                
+                // 원래 input의 배치 방식
+                div.style.display = style.display; 
+                div.style.position = style.position;
+                div.style.top = style.top;
+                div.style.left = style.left;
+                div.style.transform = style.transform; // 회전 등이 있다면 적용
 
-                // 가로 정렬 (input의 text-align에 따라 맞춤)
+                // 수직 정렬을 위한 Flexbox 적용
+                div.style.display = 'flex';
+                div.style.alignItems = 'center'; // 세로 중앙 정렬
+
+                // 가로 정렬 보정
                 if (style.textAlign === 'center') div.style.justifyContent = 'center';
                 else if (style.textAlign === 'right') div.style.justifyContent = 'flex-end';
                 else div.style.justifyContent = 'flex-start';
 
-                // 잘림 방지용 핵심 스타일
-                div.style.overflow = 'visible'; // 삐져나와도 일단 자르지마 새끼야. 이렇게 처리하니까 안 잘리고 나옴 ^__^
-                div.style.whiteSpace = 'nowrap'; // 줄바꿈 금지
-                div.style.lineHeight = '1.2'; // 적당한 줄 간격
-                div.style.position = 'absolute'; // 위치 고정
-                div.style.top = '0';
-                div.style.left = '0';
-                div.style.background = 'transparent'; // 배경 투명하게
+                // 글자 잘림 방지
+                div.style.overflow = 'visible'; 
+                div.style.whiteSpace = 'nowrap';
+                div.style.background = 'transparent'; // 배경 투명
+                div.style.border = 'none'; // 테두리 제거
 
-                // 부모 요소 설정 (position: relative가 있어야 absolute가 먹힘)
-                const parent = input.parentElement;
-                if (window.getComputedStyle(parent).position === 'static') {
-                    parent.style.position = 'relative';
+                // input 자리에 div를 교체하는 느낌으로 삽입
+                // appendChild 대신 insertBefore를 써야 순서가 안 바뀜
+                if (input.parentNode) {
+                    input.parentNode.insertBefore(div, input);
+                    input.style.display = 'none'; // 원본은 숨김
                 }
-
-                // input 숨기고 div 추가
-                input.style.display = 'none';
-                parent.appendChild(div);
             }
         }
     };
