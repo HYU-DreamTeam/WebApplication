@@ -123,6 +123,7 @@ vBtn.onclick = function () {
     createCard(side);
 };
 
+// 사이드바 넘기기
 function toggleSidebar(tabName) {
     if (currentTab === tabName) {
         currentTab = null;
@@ -149,6 +150,13 @@ function toggleSidebar(tabName) {
 
 templateBtn.onclick = function () {
     toggleSidebar('template');
+};
+
+storageBoxBtn.onclick = function () {
+    toggleSidebar('storage');
+    if (currentTab === 'storage') {
+        renderStorageList();
+    }
 };
 
 canvasTrunBtn.onclick = function () {
@@ -324,17 +332,11 @@ function drawCardElement(element, target, id = true) {
     target.appendChild(newElement);
 }
 
-storageBoxBtn.onclick = function () {
-    toggleSidebar('storage');
-    if (currentTab === 'storage') {
-        renderStorageList();
-    }
-};
-
 saveBtn.onclick = function () {
     saveToLocalStorage();
 }
 
+// 로컬 스토리지에 저장하기
 function saveToLocalStorage() {
 
     // 현재 작업물의 기준 크기 구하기
@@ -637,6 +639,7 @@ async function downloadCard() {
                     input.parentNode.insertBefore(div, input);
                     input.style.display = 'none'; // 원본은 숨김
                 }
+                
             }
         }
     };
