@@ -45,7 +45,7 @@ let isEditMode = false;
 
 const jsonData = [];
 
-const MAX_CARDS = 16;
+const MAX_CARDS = 20;
 
 let currIdx = 4;
 
@@ -78,11 +78,6 @@ document.addEventListener('wheel', (e) => {
     }, 200);
 });
     
-    // ... (기존 wheel 이벤트 리스너 코드는 그대로 유지) ...
-
-    // [카드 클릭 이벤트 - 리팩토링]
-    // 중복 코드를 줄이기 위해 렌더링 함수를 분리하는 것이 좋지만, 
-    // 일단 기존 구조에서 편집 모드일 때 클릭 방지만 추가합니다.
 for(let i = 0; i < MAX_CARDS; i++) {
         cards[i].addEventListener('click', () => {
             if(isEditMode) {
@@ -94,9 +89,7 @@ for(let i = 0; i < MAX_CARDS; i++) {
             reloadCardOption(); // 팬 돌리기
             detailContainer.classList.add('active');
 
-            // [핵심 변경: 데이터 존재 여부 확인]
             if (i < jsonData.length) {
-                // >> 기존 데이터가 있는 경우 (수정 모드)
                 isNewEntry = false;
                 targetDataIndex = i; // 수정할 인덱스 저장
                 renderDetailView(jsonData[i]);
@@ -109,7 +102,7 @@ for(let i = 0; i < MAX_CARDS; i++) {
                 const defaultData = {
                     title: "새 프로젝트",
                     description: "프로젝트 설명을 입력하세요.",
-                    themeColor: "#555555", // 요청하신 기본 색상
+                    themeColor: "#555555",
                     icon: "📝",
                     category: "New & Project",
                     technologies: ["Plan", "Idea"],
@@ -134,8 +127,6 @@ for(let i = 0; i < MAX_CARDS; i++) {
         }
         detailContainer.classList.remove('active');
     });
-
-    // ... (기존 downloadBtn 이벤트 리스너 그대로 유지) ...
         downloadBtn.addEventListener('click', () => {
         html2canvas(detailContainer).then(function(canvas) {
             const captureImgData = canvas.toDataURL('image/png');
@@ -256,11 +247,8 @@ function saveChanges(index) {
     };
 
     if (isNewEntry) {
-        // 1. 신규 추가 (Push)
         jsonData.push(newObj);
-        
-        // 중요: 신규 추가된 카드의 DOM(메인화면 카드)을 업데이트해야 함
-        // 지금 targetDataIndex는 jsonData.length - 1 (방금 추가된 곳)
+
         const newIndex = jsonData.length - 1;
         const targetCard = cards[newIndex];
         
@@ -270,7 +258,6 @@ function saveChanges(index) {
             targetCard.querySelector('b').innerText = newObj.icon;
             targetCard.querySelector('em').innerText = newIndex + 1;
             targetCard.style.backgroundColor = newObj.themeColor;
-            // X 표시 였던 것을 숫자로 변경 등 필요한 스타일 리셋
         }
         
         // 플래그 초기화
